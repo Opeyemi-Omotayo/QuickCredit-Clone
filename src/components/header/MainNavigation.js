@@ -5,8 +5,8 @@ import './MainNavigation.css';
 import NavLinks from "./NavLinks";
 
 const MainNavigation =() => {
-    return <React.Fragment>
-         <div className="wrapper" >
+    return(
+      <div className="wrapper" >
       <header>
         <div className="header fl_left">
         <img src={logo} className="App-logo" alt="logo" /> 
@@ -14,8 +14,7 @@ const MainNavigation =() => {
        <NavLinks />
       </header>
     </div>
-
-    </React.Fragment>
+    );
 };
 
 export default MainNavigation;
