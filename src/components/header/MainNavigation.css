@@ -1,0 +1,12 @@
+.wrapper {
+  background-color: rgb(218, 244, 245);
+  height: 70px;
+}
+
+.fl_left {
+  float: left;
+}
+
+.header {
+  margin-left: 25px;
+}
