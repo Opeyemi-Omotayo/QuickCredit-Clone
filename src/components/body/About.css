@@ -1,0 +1,75 @@
+.about {
+  padding-top: 75px;
+}
+
+.about .titlepage p {
+  line-height: 24px;
+  padding-top: 19px;
+  color: #000;
+  font-weight: 400;
+}
+
+.text-about {
+  font-weight: bolder;
+  font-size: 30px;
+  padding-bottom: 25px;
+}
+
+.about_box {
+  padding: 20px 0;
+  box-shadow: 4px 0 27px rgba(12, 11, 11, 0.2);
+  background-color: rgb(254, 255, 255);
+  height: 18rem;
+}
+
+.about_box_text {
+  padding-top: 20px;
+  padding-left: 50px;
+}
+
+.about_box_text p {
+  font-size: 18px;
+  line-height: 32px;
+  color: #0b0d0a;
+  font-weight: 400;
+  padding-bottom: 35px;
+  width: 60%
+}
+
+.about_box_img {
+  padding: 35px 0;
+  margin-right: -60px;
+  height: 14rem;
+  width: 40%; background-color: rgb(230, 240, 240)
+}
+
+.about_box_img figure {
+  margin: 0;
+}
+
+.about_box_img figure img {
+  width: 80%;
+}
+
+.top_layer {
+  position: relative;
+}
+
+.container {
+  width: 88%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 35px;
+  margin-left: 35px;
+}
+
+.d_flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%
+}
+
+.img-style{
+  height: 19rem
+}
