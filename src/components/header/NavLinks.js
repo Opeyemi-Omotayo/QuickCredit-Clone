@@ -1,19 +1,19 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
+//import { NavLink } from 'react-router-dom';
 
 import './NavLinks.css';
 
 const NavLinks = () => {
     return <React.Fragment>
           <ul className="fl_right navStyle">
-           <li><NavLink to="/">ABOUT</NavLink></li>
+          <li><a href="#aboutUS">ABOUT </a></li>
             <li>
-            <NavLink to="/process">THE PROCESS</NavLink>
+              <a href="#process">THE PROCESS</a>
             </li>
-            <li><NavLink to="/whyus">WHY US</NavLink></li>
-            <li><NavLink to="/faqs">FAQS</NavLink></li>
-            <li><NavLink to="/login">LOGIN</NavLink></li>
-            <li><NavLink to="/register">REGISTER</NavLink></li>
+            <li><a href="#whyUs">WHY US</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="login.html">LOGIN</a></li>
+            <li><a href="register.html" class="startBtn">Register</a></li>
           </ul>
     </React.Fragment>
 };

@@ -3,5 +3,32 @@
   }
  
   .navStyle{
-    margin-right: 25px
+    display: flex;
+    list-style: none;
   }
+
+  .navStyle ul li{
+    display: inline-block;
+    margin-right: 12rem;
+  }
+
+  .navStyle a {
+    margin-right: 2rem;
+    text-decoration: none;
+    font-style: bold;
+    color: #0f0f0f;
+  }
+
+  .navStyle a:hover,
+.navStyle a:active,
+.navStyle a.active {
+  border-color: #292929;
+  color: #292929;
+}
+
+.startBtn{
+  border: 1px solid rgb(22, 189, 22);
+  color: rgb(22, 189, 22);
+  border-radius: 9px;
+  padding: 9px;
+}

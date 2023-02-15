@@ -36,13 +36,6 @@
   width: 60%
 }
 
-.about_box_img {
-  padding: 35px 0;
-  margin-right: -60px;
-  height: 14rem;
-  width: 40%; background-color: rgb(230, 240, 240)
-}
-
 .about_box_img figure {
   margin: 0;
 }
@@ -71,5 +64,15 @@
 }
 
 .img-style{
-  height: 19rem
+  height: 19rem;
+}
+
+.about_box_img {
+  padding: 35px 0;
+  margin-left: 50rem;
+  margin-right: -60px;
+  height: 14rem;
+  margin-top: -10.8rem;
+  width: 40%; 
+  background-color: rgb(230, 240, 240)
 }

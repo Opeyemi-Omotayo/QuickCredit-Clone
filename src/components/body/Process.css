@@ -1,0 +1,57 @@
+.img-box {
+    padding-bottom: 10px;
+}
+
+.box-img-div {
+    padding: 50px
+}
+
+.box-p {
+    font-size: 25px;
+    padding-bottom: 7px;
+}
+
+.boxContainer {
+    width: 90%;
+    padding: 20px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.boxHead {
+    width: 90%;
+    padding: 20px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    color: rgb(42, 42, 253);
+    font-size: 16px;
+}
+
+.boxHead2 {
+    font-weight: bolder;
+    font-size: 32px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2rem;
+}
+
+.box {
+    width: 330px;
+    height: 400px;
+    background: rgb(254, 255, 255);
+    margin: 0px 26px;
+    transition: 1s;
+    border-radius: 4%;
+}
+
+.box:hover {
+    z-index: 2;
+    box-shadow: 4px 0 27px rgba(02, 3, 8, 0.2);
+}

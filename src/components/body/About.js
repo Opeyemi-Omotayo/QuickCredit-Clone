@@ -23,7 +23,7 @@ const About = () => {
               <div className="about_box_img">
                 <figure>
                   <img
-                    src=""
+                    src="https://quickcredit.com.ng/static/media/About-Us-Illustration.4b3f1880.png"
                     alt="#"
                     className="img-style"
                   />

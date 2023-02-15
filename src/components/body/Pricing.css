@@ -1,0 +1,12 @@
+.formDivContainer {
+  background-color: rgb(2, 2, 68);
+  color: white;
+  padding-left: 11rem;
+  padding-top: 7rem;
+  height: 23rem;
+  margin-top: 13rem;
+}
+
+.formDiv-div {
+  width: 100%;
+}

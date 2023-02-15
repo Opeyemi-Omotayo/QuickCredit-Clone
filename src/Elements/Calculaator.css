@@ -1,0 +1,39 @@
+.formDiv {
+  width: 40%;
+  background-color: rgb(0, 51, 153);
+  height: 34rem;
+  margin-top: -11rem;
+  margin-right: 6rem;
+  width: 33rem;
+  border-top-left-radius: 3%;
+  border-top-right-radius: 3%;
+}
+
+.formDiv-form {
+  padding: 45px;
+}
+
+.formDiv-div {
+  padding-top: 25px;
+}
+
+.formDiv-div2 {
+  padding-left: 45px;
+  padding-top: 5px;
+}
+
+.formDiv-sec {
+  width: 100%;
+}
+
+.formDiv-sec-div {
+  width: 55%;
+}
+
+.formDes {
+  padding-top: 94px;
+}
+
+.formDes-p {
+  padding-bottom: 15px;
+}
