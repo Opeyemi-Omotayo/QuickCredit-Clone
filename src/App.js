@@ -4,6 +4,7 @@ import About from './components/body/About';
 import MainNavigation from './components/header/MainNavigation';
 import Process from './components/body/Process';
 import Pricing from './components/body/Pricing';
+import WhyUs from './components/body/WhyUs';
 
 function App() {
   return <React.Fragment>
@@ -11,6 +12,7 @@ function App() {
     <About />
     <Process />
     <Pricing />
+    <WhyUs />
   </React.Fragment>
 
   ;

@@ -1,7 +1,7 @@
 .formDiv {
   width: 40%;
   background-color: rgb(0, 51, 153);
-  height: 34rem;
+  height: 39.4rem;
   margin-top: -11rem;
   margin-right: 6rem;
   width: 33rem;
@@ -36,4 +36,14 @@
 
 .formDes-p {
   padding-bottom: 15px;
+}
+
+input[type="text"] {
+  width: 90%;
+  border: none;
+  padding: 11px 12px;
+  background-color: rgb(7, 7, 105);
+  color: rgb(209, 209, 204);
+  border-radius: 6 px;
+  font-size: 18px;
 }

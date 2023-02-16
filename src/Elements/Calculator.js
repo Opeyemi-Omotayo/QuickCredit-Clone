@@ -13,7 +13,7 @@ const Calculator = () => {
             <input
               type="text"
               id="loanAmount"
-              name="loanAmount"
+              name= "loanAmount"
               placeholder="Enter Amount"
               value=""
             />

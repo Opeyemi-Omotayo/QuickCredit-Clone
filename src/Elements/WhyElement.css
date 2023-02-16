@@ -1,0 +1,27 @@
+.boxContainer {
+  width: 90%;
+  padding: 20px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.box-index {
+  width: 65%;
+}
+
+.choose {
+  width: 50%;
+  padding-right: 70px;
+  text-align: center;
+}
+
+.choose1 {
+  width: 50%;
+  text-align: center;
+}
+
+.box-size{
+    width: 65%
+}

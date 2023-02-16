@@ -1,0 +1,16 @@
+.boxHead {
+  width: 90%;
+  padding: 20px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: rgb(42, 42, 253);
+  font-size: 16px;
+}
+
+.head-index {
+  color: black;
+  font-size: 32px;
+  font-weight: bolder;
+}
