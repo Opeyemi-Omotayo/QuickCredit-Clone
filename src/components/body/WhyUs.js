@@ -5,7 +5,7 @@ import './WhyUs.css';
 
 const WhyUs = () => {
   return <React.Fragment>
-         <section id="whyUs">
+         <section className="whyUs">
       <h1 class="boxHead head-index">
         Why Choose Us
       </h1>

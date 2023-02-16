@@ -5,7 +5,7 @@ import './Process.css';
 const Process = (props) => {
   return (
     <React.Fragment>
-      <div id="process" className="processs">
+      <div className="process">
         <h2 className="boxHead">HOW IT WORKS</h2>
         <h1 className="boxHead2">Fast & Easy Application Process</h1>
         <div className="boxContainer">

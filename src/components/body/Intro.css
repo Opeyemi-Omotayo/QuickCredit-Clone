@@ -1,0 +1,28 @@
+.introDiv {
+  height: 147px;
+  text-align: center;
+}
+
+.boldH1 {
+  font-weight: bolder;
+  font-size: 65px;
+  width: 490px;
+  margin-left: 27rem;
+  padding-top: 40px;
+}
+
+.smallp {
+  font-size: 20px;
+  width: 600px;
+  margin-top: 1.5rem;
+  margin-left: 23.5rem;
+}
+
+.iphoneX {
+  margin-top: 3.5rem;
+}
+
+.div-back {
+  background-color: rgb(218, 244, 245);
+  margin-top: -2.8rem;
+}
