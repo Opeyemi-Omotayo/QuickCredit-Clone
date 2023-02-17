@@ -11,7 +11,7 @@ const Question = (props) => {
           {props.text}
           <AiOutlinePlus className="showFAQs fl_right"/>
         </p>
-        <p class="FAQsHide1"></p>
+        <p className="FAQsHide1"></p>
       </div>
     </React.Fragment>
   );

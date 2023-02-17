@@ -9,23 +9,21 @@ const Calculator = () => {
       <div className="fl_right formDiv">
         <form className="formDiv-form">
           <div>
-            <label for="loanAmount">Loan Amount</label>
+            <label htmlFor="loanAmount">Loan Amount</label>
             <input
               type="text"
               id="loanAmount"
               name= "loanAmount"
               placeholder="Enter Amount"
-              value=""
             />
           </div>
           <div className="formDiv-div">
-            <label for="duration">Duration</label>
+            <label htmlFor="duration">Duration</label>
             <input
               type="text"
               id="duration"
               name="duration"
               placeholder="0"
-              value=""
             />
           </div>
         </form>

@@ -8,8 +8,8 @@ import "./WhyElement.css";
 const WhyElement = () => {
   return (
     <React.Fragment>
-      <div class="boxContainer box-index">
-        <div class="choose">
+      <div className="boxContainer box-index">
+        <div className="choose">
           <img src={Fig1} alt="fig1" />
           <h1>We're flexible</h1>
           <p>
@@ -17,7 +17,7 @@ const WhyElement = () => {
             things go wrong, we're here to help you.
           </p>
         </div>
-        <div class="choose1">
+        <div className="choose1">
           <img src={Fig2} alt="fig2" />
           <h1>We're committed to you</h1>
           <p>
@@ -26,8 +26,8 @@ const WhyElement = () => {
           </p>
         </div>
       </div>
-      <div class="boxContainer box-size">
-        <div class="choose">
+      <div className="boxContainer box-size">
+        <div className="choose">
           <img src={Fig3} alt="fig3" />
           <h1>We're transparent</h1>
           <p>
@@ -35,7 +35,7 @@ const WhyElement = () => {
             upfront before you apply.
           </p>
         </div>
-        <div class="choose1">
+        <div className="choose1">
           <img src={Fig4} alt="fig4" />
           <h1>We're here to help</h1>
           <p>Get extensive details of requested loan facility real-time.</p>

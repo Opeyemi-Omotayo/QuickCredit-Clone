@@ -1,0 +1,61 @@
+.box-register {
+  background-color: white;
+  width: 33%;
+}
+
+.myform {
+  width: 85%;
+  padding: 2rem;
+  padding-top: 2rem;
+}
+
+.alert {
+  padding: 10px 20px;
+  background-color: #00a051;
+  width: 100%;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 15px;
+  display: none;
+}
+
+.modalText {
+  font-size: 20px;
+  padding-bottom: 1rem;
+}
+
+.username,
+.fullName,
+.email,
+.number,
+.password {
+  background-color: white;
+  border: 1px solid rgb(209, 209, 209);
+  padding: 12px;
+  border-radius: 3px;
+  color: rgb(209, 209, 209);
+  width: 100%;
+  font-size: small;
+  margin-bottom: 15px;
+}
+
+.error {
+  color: red;
+  size: 80%;
+}
+.hidden {
+  display: none;
+}
+
+.modal-pin {
+  padding-bottom: 35px;
+}
+
+.registerButton {
+  cursor: pointer;
+  border-radius: 5px;
+  width: 13rem;
+  padding: 10px;
+  background-color: rgb(76, 76, 253);
+  border: 1px solid rgb(76, 76, 253);
+}
