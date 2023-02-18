@@ -12,6 +12,7 @@ const Calculator = () => {
             <label htmlFor="loanAmount">Loan Amount</label>
             <input
               type="text"
+              className="input-calculator"
               id="loanAmount"
               name= "loanAmount"
               placeholder="Enter Amount"
@@ -21,6 +22,7 @@ const Calculator = () => {
             <label htmlFor="duration">Duration</label>
             <input
               type="text"
+              className="input-calculator"
               id="duration"
               name="duration"
               placeholder="0"

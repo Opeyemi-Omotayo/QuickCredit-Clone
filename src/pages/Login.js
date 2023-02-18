@@ -6,15 +6,15 @@ import './Register.css';
 const Login = () => {
   return <React.Fragment>
      <img src={Img} alt="Register-img" />
-    <div className="boxContainer box-register">
+    <div className=" box-register">
       <form action="" className="myform" >
         <div className="alert">Registraion Successful</div>
         <div className="modalText" >
           <strong></strong>
         </div>
         <div class="modalText">
-          <label>Username</label>
-          <input className="login" type="text" placeholder="username" />
+          <label>Email</label>
+          <input className="login" type="email" placeholder="Email Address" />
         </div>
         <div className="modal-pin">
           <label>Pin</label>

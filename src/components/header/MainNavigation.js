@@ -2,7 +2,7 @@ import React from "react";
 
 import logo from "../../logo.svg";
 import './MainNavigation.css';
-import NavLinks from "./NavLinks";
+import Navigation from "./Navigation";
 
 const MainNavigation =() => {
     return <React.Fragment>
@@ -11,7 +11,7 @@ const MainNavigation =() => {
         <div className="header fl_left">
         <img src={logo}   alt="logo" /> 
         </div>
-       <NavLinks />
+      <Navigation />
       </header>
     </div>
     </React.Fragment>

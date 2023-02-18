@@ -1,6 +1,22 @@
 .box-register {
   background-color: white;
-  width: 33%;
+  width: 35%;
+  padding-left: 5px;
+  padding-right: 20px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.box-img-logo{
+  display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    width: 3%;
+    padding: 17px;
+    margin: 100px auto;
 }
 
 .myform {
@@ -54,8 +70,12 @@
 .registerButton {
   cursor: pointer;
   border-radius: 5px;
-  width: 13rem;
+  width: 26.4rem;
   padding: 10px;
-  background-color: rgb(76, 76, 253);
-  border: 1px solid rgb(76, 76, 253);
+  background-color: rgb(2, 141, 65);
+  border: 1px solid rgb(2, 141, 65);
+}
+
+.label-img{
+  margin-top: -4rem;
 }

@@ -38,7 +38,7 @@
   padding-bottom: 15px;
 }
 
-input[type="text"] {
+.input-calculator {
   width: 90%;
   border: none;
   padding: 11px 12px;
