@@ -8,8 +8,8 @@ const Navigation = () => {
     <li><NavLink to="#process">THE PROCESS</NavLink></li>
     <li><NavLink to="#whyUs">WHY US</NavLink></li>
     <li><NavLink to="#faqs">FAQs</NavLink></li>
-    <li><NavLink to="/login">LOGIN</NavLink></li>
-    <li><NavLink to="/register" className="startBtn">Register</NavLink></li>
+    <li><NavLink to="/app/login">LOGIN</NavLink></li>
+    <li><NavLink to="/app/register" className="startBtn">Register</NavLink></li>
   </ul>
 }
 

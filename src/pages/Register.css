@@ -14,9 +14,10 @@
     flex-direction: row;
     text-align: center;
     justify-content: center;
-    width: 3%;
+    width: 5%;
     padding: 17px;
-    margin: 100px auto;
+    margin: auto;
+    margin-bottom: -4rem;
 }
 
 .myform {
@@ -72,10 +73,25 @@
   border-radius: 5px;
   width: 26.4rem;
   padding: 10px;
+  color: white;
   background-color: rgb(2, 141, 65);
   border: 1px solid rgb(2, 141, 65);
 }
 
 .label-img{
   margin-top: -4rem;
+}
+
+.login-p{
+  font-size: 20px;
+}
+
+.login-small{
+  font-size: 15px;
+  color: gray;
+  padding: 0;
+}
+
+.login-head{
+  margin-bottom: 2rem;
 }

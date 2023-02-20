@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./InfoPricing.css";
 
 const InfoPricing = () => {
@@ -11,9 +12,9 @@ const InfoPricing = () => {
           no delay to meet your urgent financial needs within 24 hours.
         </p>
         <button id="startBtn">
-          <a href="register.html" className="startbtn-a">
+          <Link to='/app/register' className="startbtn-a">
             Get Started
-          </a>
+          </Link>
         </button>
       </div>
     </React.Fragment>

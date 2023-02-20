@@ -56,7 +56,7 @@ const ImageUpload = props => {
         </div>
        
       </div>
-      {!isValid && <p>Please provide an image.</p>}
+      {!isValid && <p>{props.errorText}</p>}
     </div>
   );
 };

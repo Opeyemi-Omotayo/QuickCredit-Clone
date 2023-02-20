@@ -6,15 +6,13 @@
   }
   
   .image-upload__preview {
-    width: 26.6rem;
-    margin-left: 1.4rem;
+    width: 100%;
+    font: inherit;
+    margin-left: 1rem;
     height: 10rem;
     border: 1px dotted #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 1rem;
+    background: #f8f8f8;
+    padding: 0.15rem 0.25rem;
   }
   
   .image-upload__preview img {
@@ -25,4 +23,5 @@
 
   .click-p{
     cursor: pointer;
+    text-align: center;
   }
