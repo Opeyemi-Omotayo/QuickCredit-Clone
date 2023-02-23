@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { useForm } from "../hooks/form-hook";
 import Img from "../components/Images/Register.svg";
@@ -11,9 +11,13 @@ import {
 } from "../Validation/Validators";
 import "./Register.css";
 import Input from "../Elements/Input";
+import { AuthContext } from "../context/auth-context";
+import { useHttp } from "../hooks/http-hook";
 
 const Register = () => {
-  const [inputHandler] = useForm(
+  const auth = useContext(AuthContext);
+  const {  sendRequest } = useHttp();
+  const [formState, inputHandler] = useForm(
     {
       username: {
         value: "",
@@ -38,16 +42,40 @@ const Register = () => {
       image: {
         value: null,
         isValid: false,
-      }
+      },
     },
     false
   );
+
+  const authSubmitHandler = async (event) => {
+    console.log("okkk");
+    event.preventDefault();
+    //console.log(formState.inputs.name.value);
+    try {
+
+      const formData = new FormData();
+      formData.append('username', formState.inputs.username.value);
+      formData.append('name', formState.inputs.name.value);
+      formData.append('email', formState.inputs.email.value);
+      formData.append('number', formState.inputs.number.value);
+      formData.append('password', formState.inputs.password.value);
+      formData.append('image', formState.inputs.image.value);
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + "/users/registration",
+        "POST",
+        formData
+      );
+      
+
+      auth.login(responseData.userId, responseData.token);
+    } catch (err) {}
+  };
 
   return (
     <React.Fragment>
       <img src={Img} alt="Register-img" className="box-img-logo" />
       <div className=" box-register">
-        <form action="" className="myform">
+        <form action="" className="myform" onSubmit={authSubmitHandler}>
           <div className="alert">Registraion Successful</div>
           <div class="modalText">
             <strong>Let’s get you started with your QuickCredit Account</strong>
@@ -61,6 +89,7 @@ const Register = () => {
             validators={[VALIDATOR_REQUIRE()]}
             errorText="Please enter a Username."
             onInput={inputHandler}
+            
           />
           <Input
             id="name"
@@ -103,10 +132,13 @@ const Register = () => {
             onInput={inputHandler}
           />
           <label className="label-img">Identification Document</label>
-          <ImageUpload center id="image" onInput={inputHandler} errorText="Please provide an image."/>
-          <button className="registerButton" >
-            Get Started
-          </button>
+          <ImageUpload
+            center
+            id="image"
+            onInput={inputHandler}
+            errorText="Please provide an image."
+          />
+          <button className="registerButton">Get Started</button>
         </form>
       </div>
     </React.Fragment>
