@@ -47,7 +47,7 @@ const Register = () => {
     false
   );
 
-  const authSubmitHandler = async (event) => {
+  const submitHandler = async (event) => {
     console.log("okkk");
     event.preventDefault();
     //console.log(formState.inputs.name.value);
@@ -75,7 +75,7 @@ const Register = () => {
     <React.Fragment>
       <img src={Img} alt="Register-img" className="box-img-logo" />
       <div className=" box-register">
-        <form action="" className="myform" onSubmit={authSubmitHandler}>
+        <form action="" className="myform" onSubmit={submitHandler}>
           <div className="alert">Registraion Successful</div>
           <div class="modalText">
             <strong>Let’s get you started with your QuickCredit Account</strong>
