@@ -13,10 +13,12 @@ import "./Register.css";
 import Input from "../Elements/Input";
 import { AuthContext } from "../context/auth-context";
 import { useHttp } from "../hooks/http-hook";
+import LoadingSpinner from "../Elements/LoadingSpinner";
+import ErrorModal from "../Elements/ErrorModal";
 
 const Register = () => {
   const auth = useContext(AuthContext);
-  const {  sendRequest } = useHttp();
+  const {isLoading,  sendRequest, error, clearError } = useHttp();
   const [formState, inputHandler] = useForm(
     {
       username: {
@@ -73,8 +75,10 @@ const Register = () => {
 
   return (
     <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
       <img src={Img} alt="Register-img" className="box-img-logo" />
       <div className=" box-register">
+      {isLoading && <LoadingSpinner asOverlay />}
         <form action="" className="myform" onSubmit={submitHandler}>
           <div className="alert">Registraion Successful</div>
           <div class="modalText">
