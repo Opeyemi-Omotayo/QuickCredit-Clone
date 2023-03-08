@@ -18,7 +18,7 @@ import ErrorModal from "../Elements/ErrorModal";
 
 const Register = () => {
   const auth = useContext(AuthContext);
-  const {isLoading,  sendRequest, error, clearError } = useHttp();
+  const { isLoading, sendRequest, error, clearError } = useHttp();
   const [formState, inputHandler] = useForm(
     {
       username: {
@@ -52,25 +52,38 @@ const Register = () => {
   const submitHandler = async (event) => {
     console.log("okkk");
     event.preventDefault();
-    //console.log(formState.inputs.name.value);
+    console.log(formState.inputs.image.value);
     try {
-
       const formData = new FormData();
-      formData.append('username', formState.inputs.username.value);
-      formData.append('name', formState.inputs.name.value);
-      formData.append('email', formState.inputs.email.value);
-      formData.append('number', formState.inputs.number.value);
-      formData.append('password', formState.inputs.password.value);
-      formData.append('image', formState.inputs.image.value);
-      const responseData = await sendRequest(
+      formData.append("username", formState.inputs.username.value);
+      formData.append("name", formState.inputs.name.value);
+      formData.append("email", formState.inputs.email.value);
+      formData.append("number", formState.inputs.number.value);
+      formData.append("password", formState.inputs.password.value);
+      formData.append("image", formState.inputs.image.value);
+      const responseData =await sendRequest(
         process.env.REACT_APP_BACKEND_URL + "/users/registration",
-        "POST",
         formData
       );
-      
 
+      
+      //console.log(formState.inputs.username.value);
+
+      // const response = await fetch(process.env.REACT_APP_BACKEND_URL + "/users/registration", {
+      //   method:"POST",
+      //   headers: {
+      //     "Content-Type": "application/json"
+      //   },
+      //   body:JSON.stringify({
+      //     formData
+      //   })
+      // })
+      // return response.json();
+    
       auth.login(responseData.userId, responseData.token);
-    } catch (err) {}
+    } catch (err) {
+      console.log(error);
+    }
   };
 
   return (
@@ -78,7 +91,7 @@ const Register = () => {
       <ErrorModal error={error} onClear={clearError} />
       <img src={Img} alt="Register-img" className="box-img-logo" />
       <div className=" box-register">
-      {isLoading && <LoadingSpinner asOverlay />}
+        {isLoading && <LoadingSpinner asOverlay />}
         <form action="" className="myform" onSubmit={submitHandler}>
           <div className="alert">Registraion Successful</div>
           <div class="modalText">
@@ -93,7 +106,6 @@ const Register = () => {
             validators={[VALIDATOR_REQUIRE()]}
             errorText="Please enter a Username."
             onInput={inputHandler}
-            
           />
           <Input
             id="name"

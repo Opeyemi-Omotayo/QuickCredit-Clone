@@ -46,11 +46,18 @@
     width: 330px;
     height: 400px;
     background: rgb(254, 255, 255);
-    margin: 0px 26px;
+    margin: 0px 36px;
     transition: 1s;
     border-radius: 4%;
 }
 
+.boxe{
+    margin-left: -12rem;
+}
+
+.boxeee{
+    margin-right: -12rem;
+}
 .box:hover {
     z-index: 2;
     box-shadow: 4px 0 27px rgba(02, 3, 8, 0.2);

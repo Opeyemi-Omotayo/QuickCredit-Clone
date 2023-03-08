@@ -25,3 +25,11 @@
 .box-size{
     width: 65%
 }
+
+.animateStyle{
+  margin-left: -4rem;
+}
+
+.animateStyle2{
+  margin-right: -4rem;
+}
