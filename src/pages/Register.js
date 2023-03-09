@@ -1,4 +1,6 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useHistory } from "react-router-dom";
+import PhoneInput from "react-phone-number-input";
 
 import { useForm } from "../hooks/form-hook";
 import Img from "../components/Images/Register.svg";
@@ -15,75 +17,75 @@ import { AuthContext } from "../context/auth-context";
 import { useHttp } from "../hooks/http-hook";
 import LoadingSpinner from "../Elements/LoadingSpinner";
 import ErrorModal from "../Elements/ErrorModal";
+import { Link } from "react-router-dom";
 
 const Register = () => {
+  const history = useHistory();
   const auth = useContext(AuthContext);
-  const { isLoading, sendRequest, error, clearError } = useHttp();
-  const [formState, inputHandler] = useForm(
+  const { isLoading, error, sendRequest, clearError } = useHttp();
+
+  const [formState, inputHandler, setFormData] = useForm(
     {
-      username: {
-        value: "",
-        isValid: false,
-      },
-      name: {
-        value: "",
-        isValid: false,
-      },
       email: {
         value: "",
         isValid: false,
       },
-      number: {
+      password: {
         value: "",
-        isValid: false,
-      },
-      pin: {
-        value: "",
-        isValid: false,
-      },
-      image: {
-        value: null,
         isValid: false,
       },
     },
     false
   );
 
-  const submitHandler = async (event) => {
-    console.log("okkk");
-    event.preventDefault();
-    console.log(formState.inputs.image.value);
-    try {
-      const formData = new FormData();
-      formData.append("username", formState.inputs.username.value);
-      formData.append("name", formState.inputs.name.value);
-      formData.append("email", formState.inputs.email.value);
-      formData.append("number", formState.inputs.number.value);
-      formData.append("password", formState.inputs.password.value);
-      formData.append("image", formState.inputs.image.value);
-      const responseData =await sendRequest(
-        process.env.REACT_APP_BACKEND_URL + "/users/registration",
-        formData
+  const switchModeHandler = () => {
+      setFormData(
+        {
+          ...formState.inputs,
+          name: {
+            value: "",
+            isValid: false,
+          },
+          number: {
+            value: "",
+            isValid: false,
+          },
+          username: {
+            value: "",
+            isValid: false,
+          },
+          image: {
+            value: null,
+            isValid: false,
+          },
+        },
+        false
       );
-
-      
-      //console.log(formState.inputs.username.value);
-
-      // const response = await fetch(process.env.REACT_APP_BACKEND_URL + "/users/registration", {
-      //   method:"POST",
-      //   headers: {
-      //     "Content-Type": "application/json"
-      //   },
-      //   body:JSON.stringify({
-      //     formData
-      //   })
-      // })
-      // return response.json();
     
-      auth.login(responseData.userId, responseData.token);
-    } catch (err) {
-      console.log(error);
-    }
+  };
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+      try {
+        const formData = new FormData();
+        formData.append("username", formState.inputs.username.value);
+        formData.append("name", formState.inputs.name.value);
+        formData.append("email", formState.inputs.email.value);
+        formData.append("number", formState.inputs.number.value);
+        formData.append("password", formState.inputs.password.value);
+        formData.append("image", formState.inputs.image.value);
+        const responseData = await sendRequest(
+          process.env.REACT_APP_BACKEND_URL + "/users/registration",
+          "POST",
+          formData
+        );
+        console.log(formState.inputs.password.value);
+        history.push("/");
+        auth.login(responseData.userId, responseData.token);
+      } catch (err) {
+        console.log(err.message);
+      }
+    
   };
 
   return (
@@ -93,7 +95,6 @@ const Register = () => {
       <div className=" box-register">
         {isLoading && <LoadingSpinner asOverlay />}
         <form action="" className="myform" onSubmit={submitHandler}>
-          <div className="alert">Registraion Successful</div>
           <div class="modalText">
             <strong>Let’s get you started with your QuickCredit Account</strong>
           </div>
@@ -107,7 +108,7 @@ const Register = () => {
             errorText="Please enter a Username."
             onInput={inputHandler}
           />
-          <Input
+         <Input
             id="name"
             element="input"
             type="text"
@@ -138,23 +139,37 @@ const Register = () => {
             onInput={inputHandler}
           />
           <Input
-            id="pin"
             element="input"
+            id="password"
             type="password"
-            label="Pin"
-            placeholder="Pin"
+            label="Password"
             validators={[VALIDATOR_MINLENGTH(6)]}
-            errorText="Please enter a password"
+            errorText="Please enter a valid password, at least 6 characters."
             onInput={inputHandler}
           />
-          <label className="label-img">Identification Document</label>
-          <ImageUpload
-            center
-            id="image"
-            onInput={inputHandler}
-            errorText="Please provide an image."
-          />
-          <button className="registerButton">Get Started</button>
+          <div>
+            <label className="label-img">Identification Document</label>
+            <ImageUpload
+              center
+              id="image"
+              onInput={inputHandler}
+              errorText="Please provide an image."
+            />
+          </div> 
+          <button
+            type="submit"
+            className="registerButton"
+            disabled={!formState.isValid}
+          >
+            SIGNUP
+          </button>
+          <Link
+            onClick={switchModeHandler}
+            to="/app/users/login"
+            className="shuttleBtn"
+          >
+            SWITCH TO LOGIN
+          </Link>
         </form>
       </div>
     </React.Fragment>
