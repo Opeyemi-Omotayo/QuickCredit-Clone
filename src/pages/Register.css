@@ -100,3 +100,17 @@
 .shuttleBtn{
   text-align: right;
 }
+
+.phone-input{
+  width: 25.7rem;
+  border: none;
+}
+
+.input-verify{
+  width: 100%;
+  height: 32px;
+  font: inherit;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  padding: 0.15rem 0.25rem;
+}

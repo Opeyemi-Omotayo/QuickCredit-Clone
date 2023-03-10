@@ -5,6 +5,7 @@ import "./App.css";
 import Register from "./pages/Register";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
+import VerifyNumber from "./pages/VerifyNumber";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/app/users/login" exact>
           <Login />
+        </Route>
+        <Route path="/app/users/verification" exact>
+          <VerifyNumber />
         </Route>
       </Switch>
     </Router>

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
+import 'react-phone-number-input/style.css';
 
 import { useForm } from "../hooks/form-hook";
 import Img from "../components/Images/Register.svg";
@@ -19,8 +20,10 @@ import LoadingSpinner from "../Elements/LoadingSpinner";
 import ErrorModal from "../Elements/ErrorModal";
 import { Link } from "react-router-dom";
 
+
 const Register = () => {
   const history = useHistory();
+  const [number, setNumber] = useState();
   const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttp();
 
@@ -39,53 +42,50 @@ const Register = () => {
   );
 
   const switchModeHandler = () => {
-      setFormData(
-        {
-          ...formState.inputs,
-          name: {
-            value: "",
-            isValid: false,
-          },
-          number: {
-            value: "",
-            isValid: false,
-          },
-          username: {
-            value: "",
-            isValid: false,
-          },
-          image: {
-            value: null,
-            isValid: false,
-          },
+    setFormData(
+      {
+        ...formState.inputs,
+        name: {
+          value: "",
+          isValid: false,
         },
-        false
-      );
-    
+        number: {
+          value: "",
+          isValid: false,
+        },
+        username: {
+          value: "",
+          isValid: false,
+        },
+        image: {
+          value: null,
+          isValid: false,
+        },
+      },
+      false
+    );
   };
 
   const submitHandler = async (event) => {
     event.preventDefault();
-      try {
-        const formData = new FormData();
-        formData.append("username", formState.inputs.username.value);
-        formData.append("name", formState.inputs.name.value);
-        formData.append("email", formState.inputs.email.value);
-        formData.append("number", formState.inputs.number.value);
-        formData.append("password", formState.inputs.password.value);
-        formData.append("image", formState.inputs.image.value);
-        const responseData = await sendRequest(
-          process.env.REACT_APP_BACKEND_URL + "/users/registration",
-          "POST",
-          formData
-        );
-        console.log(formState.inputs.password.value);
-        history.push("/");
-        auth.login(responseData.userId, responseData.token);
-      } catch (err) {
-        console.log(err.message);
-      }
-    
+    try {
+      const formData = new FormData();
+      formData.append("username", formState.inputs.username.value);
+      formData.append("name", formState.inputs.name.value);
+      formData.append("email", formState.inputs.email.value);
+      formData.append("number", number);
+      formData.append("password", formState.inputs.password.value);
+      formData.append("image", formState.inputs.image.value);
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + "/users/registration",
+        "POST",
+        formData
+      );
+      console.log(formState.inputs.number.value);
+      history.push("/app/users/verification");
+      auth.login(responseData.userId, responseData.token);
+    } catch (err) {
+    }
   };
 
   return (
@@ -108,7 +108,7 @@ const Register = () => {
             errorText="Please enter a Username."
             onInput={inputHandler}
           />
-         <Input
+          <Input
             id="name"
             element="input"
             type="text"
@@ -128,7 +128,10 @@ const Register = () => {
             errorText="Please enter your correct email address"
             onInput={inputHandler}
           />
-          <Input
+           <div className="phone-input">
+           <PhoneInput value={number}  onChange={setNumber} countries={["NG"]} defaultCountry={"NG"} />
+            </div>
+           {/* <Input
             id="number"
             element="input"
             type="number"
@@ -137,7 +140,7 @@ const Register = () => {
             validators={[VALIDATOR_PHONENUMBER(11)]}
             errorText="Please enter your correct phone number"
             onInput={inputHandler}
-          />
+          /> */}
           <Input
             element="input"
             id="password"
@@ -155,11 +158,11 @@ const Register = () => {
               onInput={inputHandler}
               errorText="Please provide an image."
             />
-          </div> 
+          </div>
           <button
             type="submit"
             className="registerButton"
-            disabled={!formState.isValid}
+           
           >
             SIGNUP
           </button>

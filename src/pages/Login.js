@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 
 import Img from "../components/Images/Register.svg";
