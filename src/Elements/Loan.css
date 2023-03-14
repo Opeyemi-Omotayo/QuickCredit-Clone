@@ -1,0 +1,69 @@
+.single-card-loan{
+    height: 300px;
+    background-color: white;
+    width: 95%;
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+}
+
+.single-card-loan:hover{
+    transform: translateY(-5px);
+}
+
+.single-card-loan p{
+    padding-top: 2rem;
+   text-align: center;
+   color: rgb(15, 172, 235);
+}
+
+.single-card-loan h5{
+    padding-top: 2rem;
+   text-align: center;
+   color: grey;
+
+}
+
+.single-card-loan button{
+    margin-left: 10rem;
+    height: 40px;
+    width: 10rem;
+    background-color: #008000;
+    border: 1px solid #008000;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.single-card-loan h2{
+padding-left: 2rem;
+}
+
+.single-card-loan span{
+    padding: 45px;
+}
+.loan-bg{
+    background-color: #c9d9fa;
+  margin: 2rem;
+  height: 170px;
+  padding-left: 16px;
+    border-radius: 8px;
+}
+
+.loan-bg h4{
+    color: rgb(83, 83, 248);
+}
+
+.payment-card{
+    width: 47%;
+}
+
+.transaction-history{
+    height: 200px;
+    width: 98%;
+}
+
+.underline{
+    height: 1px;
+    margin-top: 1rem;
+    background-color: rgb(143, 142, 142);
+}

@@ -6,6 +6,10 @@ import Register from "./pages/Register";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import VerifyNumber from "./pages/VerifyNumber";
+import DashBoard from "./pages/DashBoard";
+import Loan from "./Elements/Loan";
+import PaymentCard from "./Elements/PaymentCard";
+import TransactionHistory from "./Elements/TransactionHistory";
 
 function App() {
   return (
@@ -22,6 +26,18 @@ function App() {
         </Route>
         <Route path="/app/users/verification" exact>
           <VerifyNumber />
+        </Route>
+        <Route path="/app/users/dashboard" exact>
+         <DashBoard />
+        </Route>
+        <Route path="/app/users/loans" exact>
+          <Loan />
+        </Route>
+        <Route path="/app/users/payment" exact>
+          <PaymentCard />
+        </Route>
+        <Route path="/app/users/history" exact>
+          <TransactionHistory />
         </Route>
       </Switch>
     </Router>

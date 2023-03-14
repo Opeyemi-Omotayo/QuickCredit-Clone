@@ -1,0 +1,43 @@
+
+    
+    .single-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .container{
+        width: 75%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 20px;
+        padding: 0px 30px;
+        margin-top: 50px;
+        margin-left: 18rem;
+    }
+
+    .single-card{
+        height: 100px;
+        background-color: white;
+        position: relative;
+        width: 19rem;
+        padding: 3px;
+        box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+
+    .single-card h3{
+        position: absolute;
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .single-card img {
+        position: absolute;
+        transform: translate(-550%, -50%);
+        margin: 0;
+        top: 50%;
+        left: 50%;
+    }
+
+    

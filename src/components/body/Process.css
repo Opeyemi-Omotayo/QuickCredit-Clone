@@ -58,6 +58,7 @@
 .boxeee{
     margin-right: -12rem;
 }
+
 .box:hover {
     z-index: 2;
     box-shadow: 4px 0 27px rgba(02, 3, 8, 0.2);

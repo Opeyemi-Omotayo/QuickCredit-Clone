@@ -104,6 +104,7 @@
 .phone-input{
   width: 25.7rem;
   border: none;
+  margin-bottom: 2rem;
 }
 
 .input-verify{
@@ -113,4 +114,26 @@
   border: 1px solid #ccc;
   background: #f8f8f8;
   padding: 0.15rem 0.25rem;
+}
+
+.btn-right{
+  float: right;
+  width: 6rem;
+  color: white;
+  margin-top: 2rem;
+  border: solid 1px #00a051;
+  height: 2rem;
+  background-color: #00a051;
+  cursor: pointer;
+}
+
+.btn-left{
+  margin-top: 2rem;
+  border: solid 1px #00a051;
+  height: 2rem;
+  color: white;
+  cursor: pointer;
+  float: left;
+  width: 6rem;
+  background-color: #00a051;
 }
