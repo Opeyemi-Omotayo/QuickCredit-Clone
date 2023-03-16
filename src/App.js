@@ -10,6 +10,7 @@ import DashBoard from "./pages/DashBoard";
 import Loan from "./Elements/Loan";
 import PaymentCard from "./Elements/PaymentCard";
 import TransactionHistory from "./Elements/TransactionHistory";
+import SideDrawer from "./Elements/SideDrawer";
 
 function App() {
   return (
@@ -31,12 +32,15 @@ function App() {
          <DashBoard />
         </Route>
         <Route path="/app/users/loans" exact>
+          <SideDrawer />
           <Loan />
         </Route>
         <Route path="/app/users/payment" exact>
+          <SideDrawer />
           <PaymentCard />
         </Route>
         <Route path="/app/users/history" exact>
+          <SideDrawer />
           <TransactionHistory />
         </Route>
       </Switch>

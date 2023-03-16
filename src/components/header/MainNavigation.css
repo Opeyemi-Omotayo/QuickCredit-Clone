@@ -1,6 +1,7 @@
 .wrapper {
   background-color: rgb(218, 244, 245);
   height: 70px;
+  padding: 1.2rem;
 }
 
 .fl_left {

@@ -1,10 +1,10 @@
 import React from 'react';
 import DashBoardDivs from '../Elements/DashBoardDivs';
 import SideDrawer from '../Elements/SideDrawer';
-import { NavLink } from 'react-router-dom';
 import Loan from '../Elements/Loan';
 import PaymentCard from '../Elements/PaymentCard';
 import TransactionHistory from '../Elements/TransactionHistory';
+
 //import Navigation from '../components/header/Navigation';
 
 const DashBoard = () => {

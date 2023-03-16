@@ -13,3 +13,47 @@
     height: 20px;
     width: 20px;
   }
+
+  .side-div{
+    margin-top: 2rem;
+  }
+
+  .navStylee{
+    list-style: none;
+    text-decoration: none;
+    color: rgb(163, 162, 162);
+    padding: 20px ;
+  }
+
+  .user-div{
+border-left: 5px solid rgb(83, 83, 248);
+margin-bottom: 4rem;
+  }
+
+  .user-info{
+    width: 2.5rem;
+    height: 1.8rem;
+   margin-left: 2rem;
+   margin-top: 2rem;
+  }
+
+  .active-link{
+    color: rgb(83, 83, 248);
+    
+  }
+
+  footer{
+    color: red;
+    margin-top: 45vh;
+    clear: both;
+    margin-left: 2rem;
+    cursor: pointer;
+  }
+
+  .icon{
+    height: .9rem;
+  }
+
+  .intro-text{
+    color: black;
+  }

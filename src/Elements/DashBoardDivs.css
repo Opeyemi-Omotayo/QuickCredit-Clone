@@ -20,6 +20,7 @@
         position: relative;
         width: 19rem;
         padding: 3px;
+        cursor: pointer;
         box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
         border-radius: 8px;
     }
