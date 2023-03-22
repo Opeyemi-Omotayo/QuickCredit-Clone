@@ -12,6 +12,10 @@
   margin-right: 4rem;
 }
 
+.footer__item p, .footer__item h6{
+  color: black;
+}
+
 .display {
   background-color: rgb(218, 244, 245);
   margin-top: 10rem;

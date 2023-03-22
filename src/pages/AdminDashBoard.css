@@ -1,0 +1,37 @@
+.adminContainer{
+    background-color: white;
+    padding: 20px;
+    margin: 6rem;
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
+}
+
+.admin-intro{
+    padding-left: 20px;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    padding: 1.5rem;
+    text-align: left;
+}
+
+th, td{
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover{
+    background-color: #fcfcfc;
+    transform: translateY(-5px);
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
+}
+
+
+th{
+    background-color: #16a085;
+    color: white;
+}
+
+.status.pending {
+    
+    border-bottom: 3px solid #fdb72b;
+}

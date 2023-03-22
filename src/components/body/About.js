@@ -4,12 +4,13 @@ import './About.css';
 const About = () => {
     return <React.Fragment>
         <div id="about aboutUS" className="about top_layer">
-      <div className="container">
+      <div className="containerr">
           <div className="titlepage">
             <h2 className="text-about">
               ABOUT US
             </h2>
           </div>
+          
           <div className="about_box">
             <div className=" d_flex">
               <div className="about_box_text">
@@ -29,7 +30,7 @@ const About = () => {
                   />
                 </figure>
               </div>
-            </div>
+            </div> 
           </div>
         </div>
       </div>  
