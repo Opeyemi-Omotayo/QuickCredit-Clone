@@ -67,3 +67,22 @@ padding-left: 2rem;
     margin-top: 1rem;
     background-color: rgb(143, 142, 142);
 }
+
+.requestloan-div{
+    background-color: white;
+    width: 40%;
+}
+
+.request-input{
+    margin-bottom: 2rem;
+}
+
+.span-loan{
+    margin-left: 10rem;
+}
+
+.single-card-loan-details{
+    background-color: white;
+    height: 250px;
+    padding: 1.5rem;
+}

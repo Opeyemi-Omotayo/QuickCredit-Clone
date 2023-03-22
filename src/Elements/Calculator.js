@@ -1,9 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 
 import "./Calculaator.css";
 
 const Calculator = () => {
+  const [amount, setAmount] = useState("");
+  const [duration, setDuration] = useState("");
+
+  const newDate = new Date(Date.now() + duration * 24 * 60 * 60 * 1000).toDateString();
+
+  const handleChange = (e) => {
+setAmount(e.target.value);
+//setDuration(e.target.value);
+
+  }
+
+  const handleDurationChange = (e) => {
+    setDuration(e.target.value);
+  }
+
   return (
     <React.Fragment>
       <div className="fl_right formDiv">
@@ -16,6 +31,7 @@ const Calculator = () => {
               id="loanAmount"
               name= "loanAmount"
               placeholder="Enter Amount"
+              onChange={handleChange}
             />
           </div>
           <div className="formDiv-div">
@@ -26,6 +42,7 @@ const Calculator = () => {
               id="duration"
               name="duration"
               placeholder="0"
+              onChange={handleDurationChange}
             />
           </div>
         </form>
@@ -33,9 +50,8 @@ const Calculator = () => {
           <section className="formDiv-sec">
             <div className="fl_left">
               <h5>YOU'LL PAYBACK</h5>
-              <p id="calc">₦0.00</p>
+              <p id="calc">{"₦" + (+amount + (duration * 10) ) + ".00"} ----- {newDate}</p>
             </div>
-            <div className="fl_right formDiv-sec-div"></div>
           </section>
 
           <div className="formDes">

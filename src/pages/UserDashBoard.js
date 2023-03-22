@@ -5,9 +5,8 @@ import Loan from '../Elements/Loan';
 import PaymentCard from '../Elements/PaymentCard';
 import TransactionHistory from '../Elements/TransactionHistory';
 
-//import Navigation from '../components/header/Navigation';
 
-const DashBoard = () => {
+const UserDashBoard = () => {
   return <React.Fragment>
     <SideDrawer/>
    <div className='body-container'>
@@ -16,8 +15,8 @@ const DashBoard = () => {
     <PaymentCard />
     <TransactionHistory />
     </div>
-   
+ 
   </React.Fragment>
 }
 
-export default DashBoard;
+export default UserDashBoard;

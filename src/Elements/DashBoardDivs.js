@@ -10,10 +10,13 @@ const DashBoardDivs = () => {
   const requestServicesHandler = () => {
     toast('Coming soon!')
   };
+
+  const username = localStorage.getItem("user");
+
   return <React.Fragment>
      <ToastContainer />
     <div className="container">
-      <h4 className='intro-text'>Welcome New User,</h4>
+      <h4 className='intro-text'>Welcome {username},</h4>
     </div>
     <div className="container">
       <div className="single-card" onClick={requestServicesHandler}>

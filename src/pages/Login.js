@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useHistory, Link } from "react-router-dom";
+import jwt from "jwt-decode";
 
 import Img from "../components/Images/Register.svg";
 import Input from "../Elements/Input";
 import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH } from "../Validation/Validators";
 import { useForm } from "../hooks/form-hook";
-import { AuthContext } from "../context/auth-context";
 import { useHttp } from "../hooks/http-hook";
 import LoadingSpinner from "../Elements/LoadingSpinner";
 import ErrorModal from "../Elements/ErrorModal";
@@ -14,7 +14,6 @@ import "./Register.css";
 
 const Login = () => {
   const history = useHistory();
-  const auth = useContext(AuthContext);
   const { isLoading, sendRequest, error, clearError } = useHttp();
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -45,24 +44,27 @@ const Login = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-    console.log(formState.inputs.password.value);
-      console.log(formState.inputs.email.value);
-    try {
-      const responseData = await sendRequest(
-        process.env.REACT_APP_BACKEND_URL + "/users/login",
-        "POST",
-        JSON.stringify({
-          email: formState.inputs.email.value,
-          password: formState.inputs.password.value,
-        }),
-        {
-          "Content-Type": "application/json",
-        }
-      );
-      history.push("/");
-      auth.login(responseData.userId, responseData.token);
-    } catch (err) {
+   
+    const responseData = await sendRequest(
+      process.env.REACT_APP_BACKEND_URL + "/users/login",
+      "POST",
+      JSON.stringify({
+        email: formState.inputs.email.value,
+        password: formState.inputs.password.value,
+      }),
+      {
+        "Content-Type": "application/json",
+      }
+    );
+    const user = jwt(responseData.token);
+    localStorage.setItem("token", responseData.token);
+    localStorage.setItem("user", user.username);
+    if(user.role === "admin"){
+    history.push("/app/users/admin");
+    } else{
+      history.push("/app/users/dashboard");
     }
+  
   };
 
   return (
@@ -96,7 +98,11 @@ const Login = () => {
             onInput={inputHandler}
           />
           <button className="registerButton">LOG IN</button>
-          <Link onClick={switchModeHandler} to="/app/users/registration" className="shuttleBtn">
+          <Link
+            onClick={switchModeHandler}
+            to="/app/users/registration"
+            className="shuttleBtn"
+          >
             SWITCH TO SIGNUP
           </Link>
         </form>
