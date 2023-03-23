@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import "./App.css";
 import Register from "./pages/Register";
@@ -13,12 +13,18 @@ import TransactionHistory from "./Elements/TransactionHistory";
 import SideDrawer from "./Elements/SideDrawer";
 import RequestLoan from "./Elements/RequestLoan";
 import AdminDashBoard from "./pages/AdminDashBoard";
-import { UserAuthContextProvider } from "./context/auth-context";
+import { AuthContext } from "./context/auth-context";
+import { useAuth } from "./hooks/auth-hook";
 
 function App() {
-  return (
-    <UserAuthContextProvider>
-<Router>
+  const { token, login, logout, userId } = useAuth();
+
+  let routes;
+
+  // console.log(token);
+
+  if (token) {
+    routes = (
       <Switch>
         <Route path="/" exact>
           <HomePage />
@@ -29,14 +35,11 @@ function App() {
         <Route path="/app/users/login" exact>
           <Login />
         </Route>
-        <Route path="/app/users/verification" exact>
-          <VerifyNumber />
-        </Route>
         <Route path="/app/users/admin" exact>
-         <AdminDashBoard />
+          <AdminDashBoard />
         </Route>
         <Route path="/app/users/dashboard" exact>
-         <UserDashBoard />
+          <UserDashBoard />
         </Route>
         <Route path="/app/users/loan" exact>
           <SideDrawer />
@@ -53,10 +56,43 @@ function App() {
           <SideDrawer />
           <TransactionHistory />
         </Route>
+        <Redirect to="/" />
       </Switch>
-    </Router>
-    </UserAuthContextProvider>
-    
+    );
+  } else {
+    routes = (
+      <Switch>
+        <Route path="/" exact>
+          <HomePage />
+        </Route>
+        <Route path="/app/users/registration" exact>
+          <Register />
+        </Route>
+        <Route path="/app/users/login" exact>
+          <Login />
+        </Route>
+        <Route path="/app/users/verification" exact>
+          <VerifyNumber />
+        </Route>
+        <Redirect to="/app/users/login" />
+      </Switch>
+    );
+  }
+
+  return (
+    <AuthContext.Provider
+      value={{
+        isLoggedIn: !!token,
+        token: token,
+        userId: userId,
+        login: login,
+        logout: logout,
+      }}
+    >
+      <Router>
+        <main>{routes}</main>
+      </Router>
+    </AuthContext.Provider>
   );
 }
 

@@ -1,11 +1,14 @@
-import React, { useEffect, useState} from 'react'; 
+import React, { useEffect, useState, useContext} from 'react'; 
 import  "./AdminDashBoard.css";
 import { useHttp } from '../hooks/http-hook';
 import LoadingSpinner from "../Elements/LoadingSpinner";
+import { AuthContext} from "../context/auth-context";
 
 const AdminDashBoard = () => {
-  const { isLoading} = useHttp();
+  const auth = useContext(AuthContext);
+  const { isLoading, sendRequest} = useHttp();
   const [data, setData] = useState([]);
+  //const requestId = useParams().id;
 
   useEffect(() => {
     fetch(
@@ -14,12 +17,33 @@ const AdminDashBoard = () => {
       })
     .then((res)=> res.json())
     .then(data => {
-      console.log(data, "loanrequests");
       setData(data.users);
     })
   },[]);
 
  const username = localStorage.getItem("user");
+
+
+ const statusHandler = async (e) => {
+  e.preventDefault();
+  const requestId = e.currentTarget.id;
+  const ACTION_STATES = {
+    APPROVAL: "APPROVED",
+    REJECTED: "REJECTED"
+  }
+
+    await sendRequest(
+      `${process.env.REACT_APP_BACKEND_URL}/users/loanrequest/${requestId}`,
+      'PATCH',
+      JSON.stringify({
+        status: ACTION_STATES.APPROVAL
+      }),
+      {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + auth.token
+      }
+    );
+ }
 
   return <React.Fragment>
     <h1 className='admin-intro'>Welcome {username},</h1> 
@@ -31,22 +55,24 @@ const AdminDashBoard = () => {
         <th>Loan ID</th>
         <th>Loan Amount</th>
         <th>Duration</th>
-        <th>Repayable</th>
+        <th>Repayables</th>
         <th>Image</th>
         <th>created At</th>
         <th>Status</th>
       </tr>
+      <tbody>
       {data.map(details => {
-        return <tr>
+        return <tr key={details.id}>
           <td>{details.id}</td>
           <td>{details.loan_amount}</td>
           <td>{details.duration} days</td>
           <td>{details.repayable_amount}</td>
           <td>{details.image}</td>
           <td>{details.created_at} </td>
-          <td className='status pending'>{details.status}</td>
+          <td><button className='status' id={details.id} onClick={statusHandler}>{details.status}</button></td>
         </tr>
       })}
+     </tbody>
      </table>
     </div>
   </React.Fragment>

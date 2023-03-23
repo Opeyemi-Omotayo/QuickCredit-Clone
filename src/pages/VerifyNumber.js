@@ -6,22 +6,22 @@ import "react-phone-number-input/style.css";
 
 import LoadingSpinner from "../Elements/LoadingSpinner";
 import Img from "../components/Images/Register.svg";
-import { useUserAuth } from "../context/auth-context";
-import firebase from "../firebase";
+// import { useUserAuth } from "../context/auth-context";
+// import firebase from "../firebase";
 
 const VerifyNumber = () => {
   const { isLoading } = useHttp();
   const history = useHistory();
   const [number, setNumber] = useState("");
   const [flag, setFlag] = useState(false);
-  const {setUpRecaptha} = useUserAuth();
+  //const {setUpRecaptha} = useUserAuth();
 
   const getOtpHandler = async (e) => {
     e.preventDefault();
     console.log(number);
     try {
-      const response = await setUpRecaptha(number);
-      console.log(response, "rectttta");
+      //const response = await setUpRecaptha(number);
+      //console.log(response, "rectttta");
       setFlag(true);
     } catch (err) {
     }

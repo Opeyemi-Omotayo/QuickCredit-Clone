@@ -31,7 +31,11 @@ th{
     color: white;
 }
 
-.status.pending {
-    
-    border-bottom: 3px solid #fdb72b;
+.status{
+    background-color: #777676;
+    color: white;
+    padding: 13px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: #fdb72b;
 }

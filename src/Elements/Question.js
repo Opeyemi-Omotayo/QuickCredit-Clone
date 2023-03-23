@@ -4,14 +4,9 @@ import { AiOutlinePlus } from "react-icons/ai";
 import "./Question.css";
 
 const Question = (props) => {
-  const [show, setShow] = useState(false);
   const [flag, setFlag] = useState(false);
-  const [answer, setAnswer] = useState("");
 
   const showFAQsHandler = () => {
-     //document.querySelector(`.FAQsHide1`).style.display ='block';
-     //document.querySelector(`.FAQsHide1`).innerHTML = "i will do it";
-     //console.log(id)
     setFlag(true);
     
   };

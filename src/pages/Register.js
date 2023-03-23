@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { useHistory } from "react-router-dom";
 //import PhoneInput from "react-phone-number-input";
 import 'react-phone-number-input/style.css';
@@ -20,14 +20,14 @@ import ErrorModal from "../Elements/ErrorModal";
 import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { useUserAuth } from "../context/auth-context";
+import { AuthContext } from "../context/auth-context";
 
 
 const Register = () => {
   const history = useHistory();
-  //const auth = useContext(AuthContext);
+  const auth = useContext(AuthContext);
   const [number, setNumber] = useState("");
-  const { setUpRecaptha } = useUserAuth();
+  // const { setUpRecaptha } = useUserAuth();
   const [flag, setFlag] = useState(false);
   //const [result, setResult] = useState("");
   const { isLoading, error, sendRequest, clearError } = useHttp();
@@ -74,8 +74,8 @@ const Register = () => {
   const getOtpHandler = async (e) => {
       e.preventDefault();
     //console.log(number);
-      const response = await setUpRecaptha(number);
-      console.log(response);
+      // const response = await setUpRecaptha(number);
+      // console.log(response);
       setFlag(true);
 
   };
@@ -102,8 +102,8 @@ const cancelHandler = (e) => {
         "POST",
         formData
       );
-      //console.log(formState.inputs.number.value);
       history.push("/app/users/verification");
+      auth.login(responseData.id, responseData.token);
   };
 
   return (
@@ -177,7 +177,7 @@ const cancelHandler = (e) => {
               errorText="Please provide an image."
             />
           </div>
-          <div id="recaptcha-container" />
+          {/* <div id="recaptcha-container" /> */}
           <button
             type="submit"
             className="registerButton"

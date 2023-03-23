@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext} from "react";
 import { useHistory, Link } from "react-router-dom";
 import jwt from "jwt-decode";
 
@@ -9,10 +9,12 @@ import { useForm } from "../hooks/form-hook";
 import { useHttp } from "../hooks/http-hook";
 import LoadingSpinner from "../Elements/LoadingSpinner";
 import ErrorModal from "../Elements/ErrorModal";
+import { AuthContext } from "../context/auth-context";
 
 import "./Register.css";
 
 const Login = () => {
+  const auth = useContext(AuthContext);
   const history = useHistory();
   const { isLoading, sendRequest, error, clearError } = useHttp();
   const [formState, inputHandler, setFormData] = useForm(
@@ -64,7 +66,7 @@ const Login = () => {
     } else{
       history.push("/app/users/dashboard");
     }
-  
+    auth.login(responseData.id, responseData.token);
   };
 
   return (
