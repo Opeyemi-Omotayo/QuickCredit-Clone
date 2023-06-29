@@ -1,6 +1,7 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import jwt from "jwt-decode";
+import { ToastContainer, toast } from "react-toastify";
 
 import Img from "../components/Images/Register.svg";
 import Input from "../Elements/Input";
@@ -8,15 +9,15 @@ import { VALIDATOR_EMAIL, VALIDATOR_MINLENGTH } from "../Validation/Validators";
 import { useForm } from "../hooks/form-hook";
 import { useHttp } from "../hooks/http-hook";
 import LoadingSpinner from "../Elements/LoadingSpinner";
-import ErrorModal from "../Elements/ErrorModal";
 import { AuthContext } from "../context/auth-context";
+import Button from "../Elements/Button";
 
 import "./Register.css";
 
 const Login = () => {
   const auth = useContext(AuthContext);
   const history = useHistory();
-  const { isLoading, sendRequest, error, clearError } = useHttp();
+  const { isLoading, sendRequest, error } = useHttp();
   const [formState, inputHandler, setFormData] = useForm(
     {
       email: {
@@ -46,32 +47,40 @@ const Login = () => {
 
   const submitHandler = async (event) => {
     event.preventDefault();
-   
-    const responseData = await sendRequest(
-      process.env.REACT_APP_BACKEND_URL + "/users/login",
-      "POST",
-      JSON.stringify({
-        email: formState.inputs.email.value,
-        password: formState.inputs.password.value,
-      }),
-      {
-        "Content-Type": "application/json",
+    try {
+      const responseData = await sendRequest(
+        process.env.REACT_APP_BACKEND_URL + "/api/users/login",
+
+        "POST",
+        JSON.stringify({
+          email: formState.inputs.email.value,
+          password: formState.inputs.password.value,
+        }),
+        {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + auth.token
+        }
+      );
+
+  
+      const user = jwt(responseData.token);
+      localStorage.setItem("token", responseData.token);
+      localStorage.setItem("id", user.userId);
+      localStorage.setItem("user", user.username);
+      if (user.role === "admin") {
+        history.push("/app/users/admin");
+      } else {
+        history.push("/app/users/dashboard");
       }
-    );
-    const user = jwt(responseData.token);
-    localStorage.setItem("token", responseData.token);
-    localStorage.setItem("user", user.username);
-    if(user.role === "admin"){
-    history.push("/app/users/admin");
-    } else{
-      history.push("/app/users/dashboard");
+      auth.login(user.userId, responseData.token);
+    } catch (err) {
+      toast(error);
     }
-    auth.login(responseData.id, responseData.token);
   };
 
   return (
     <React.Fragment>
-      <ErrorModal error={error} onClear={clearError} />
+      <ToastContainer />
       <img src={Img} alt="Register-img" className="box-img-logo" />
       <div className=" box-register">
         {isLoading && <LoadingSpinner asOverlay />}
@@ -99,7 +108,7 @@ const Login = () => {
             errorText="Please enter your registered password."
             onInput={inputHandler}
           />
-          <button className="registerButton">LOG IN</button>
+          <Button disabled={!formState.isValid}>LOG IN</Button>
           <Link
             onClick={switchModeHandler}
             to="/app/users/registration"

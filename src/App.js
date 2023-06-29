@@ -5,7 +5,6 @@ import "./App.css";
 import Register from "./pages/Register";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
-import VerifyNumber from "./pages/VerifyNumber";
 import UserDashBoard from "./pages/UserDashBoard";
 import Loan from "./Elements/Loan";
 import PaymentCard from "./Elements/PaymentCard";
@@ -21,9 +20,9 @@ function App() {
 
   let routes;
 
-  // console.log(token);
+  const tokenn = localStorage.getItem('token');
 
-  if (token) {
+  if (tokenn) {
     routes = (
       <Switch>
         <Route path="/" exact>
@@ -70,9 +69,6 @@ function App() {
         </Route>
         <Route path="/app/users/login" exact>
           <Login />
-        </Route>
-        <Route path="/app/users/verification" exact>
-          <VerifyNumber />
         </Route>
         <Redirect to="/app/users/login" />
       </Switch>

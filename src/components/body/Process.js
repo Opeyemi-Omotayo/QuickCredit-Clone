@@ -17,7 +17,7 @@ const Process = (props) => {
       <div className="process">
         <h2 className="boxHead">HOW IT WORKS</h2>
         <h1 className="boxHead2">Fast & Easy Application Process</h1>
-        <div className="boxContainer" ref={myRef}>
+        <div className="boxContaineer" ref={myRef}>
           {isVisible && (
             <motion.div
               animate={{ x: 40 }}

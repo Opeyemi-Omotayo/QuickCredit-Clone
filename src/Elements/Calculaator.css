@@ -47,3 +47,38 @@
   border-radius: 6 px;
   font-size: 18px;
 }
+
+@media (max-width: 768px){
+  .formDiv-div {
+    padding-top: 5px;
+  }
+  
+  .formDiv {
+    width: 40%;
+    background-color: rgb(0, 51, 153);
+    height: 39.4rem;
+    margin-top: 5rem;
+    margin-right: 6rem;
+    width: 33rem;
+    border-top-left-radius: 3%;
+    border-top-right-radius: 3%;
+  }
+}
+
+@media (max-width: 768px){
+  .formDiv {
+    width: 40%;
+    background-color: rgb(0, 51, 153);
+    height: 33.4rem;
+    margin-top: 5rem;
+    margin-right: 6rem;
+    width: 17rem;
+    border-top-left-radius: 3%;
+    border-top-right-radius: 3%;
+  }
+
+  .formDes-p {
+    padding-bottom: 3px;
+  }
+  
+}

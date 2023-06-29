@@ -1,7 +1,6 @@
-import React, {useState, useContext} from "react";
+import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
-//import PhoneInput from "react-phone-number-input";
-import 'react-phone-number-input/style.css';
+import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 
 import { useForm } from "../hooks/form-hook";
 import Img from "../components/Images/Register.svg";
@@ -13,24 +12,22 @@ import {
 } from "../Validation/Validators";
 import "./Register.css";
 import Input from "../Elements/Input";
-//import { AuthContext } from "../context/auth-context";
 import { useHttp } from "../hooks/http-hook";
 import LoadingSpinner from "../Elements/LoadingSpinner";
 import ErrorModal from "../Elements/ErrorModal";
 import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { AuthContext } from "../context/auth-context";
+import { ToastContainer, toast } from 'react-toastify';
+import Button from "../Elements/Button";
 
 
 const Register = () => {
   const history = useHistory();
-  const auth = useContext(AuthContext);
   const [number, setNumber] = useState("");
-  // const { setUpRecaptha } = useUserAuth();
+  const [otp, setOtp] = useState("");
   const [flag, setFlag] = useState(false);
-  //const [result, setResult] = useState("");
-  const { isLoading, error, sendRequest, clearError } = useHttp();
+  const { isLoading, error, clearError } = useHttp();
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -71,48 +68,83 @@ const Register = () => {
     );
   };
 
-  const getOtpHandler = async (e) => {
-      e.preventDefault();
-    //console.log(number);
-      // const response = await setUpRecaptha(number);
-      // console.log(response);
-      setFlag(true);
+  const setUpRecaptcha = () => {
 
+    const auth = getAuth();
+   window.recaptchaVerifier = new RecaptchaVerifier("recaptcha-container", {
+  'size': 'invisible',
+  'callback': (response) => {
+    // reCAPTCHA solved, allow signInWithPhoneNumber.
+    onSignInSubmit();
+  }
+}, auth);
   };
+
+  const onSignInSubmit = (e) => {
+    e.preventDefault();
+    setUpRecaptcha();
+    let phoneNumber = number;
+    let appVerifier = window.recaptchaVerifier;
+    
+
+const auth = getAuth();
+signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+    .then((confirmationResult) => {
+      
+      window.confirmationResult = confirmationResult;
+      setFlag(true);
+      // ...
+    }).catch((error) => {
+    });
+  };
+
+  const onSubmitOtp =(e) => {
+    e.preventDefault();
+    let otpInput = otp;
+    let optConfirm = window.confirmationResult;
+    optConfirm
+      .confirm(otpInput)
+      .then(function (result) {
+        let user = result.user;
+        
+      })
+      .catch(function (error) {
+        toast("Incorrect OTP");
+      });
+
+      const responseData = fetch(
+        process.env.REACT_APP_BACKEND_URL + "/api/users/registration",{
+        method: "POST",
+        body: JSON.stringify({
+          username: formState.inputs.username.value,
+          name: formState.inputs.name.value,
+          email: formState.inputs.email.value,
+          number: number,
+          password: formState.inputs.password.value,
+          image: formState.inputs.image.value,
+          role: "customer"
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+    });
+      history.push("/app/users/login");
+  };
+  
 
 const cancelHandler = (e) => {
     e.preventDefault();
-    history.push("/app/users/registration");
+    history.push("/");
 };
-
-
-  const submitHandler = async (event) => {
-    event.preventDefault();
-    
-      const formData = new FormData();
-      formData.append("username", formState.inputs.username.value);
-      formData.append("name", formState.inputs.name.value);
-      formData.append("email", formState.inputs.email.value);
-      formData.append("number", formState.inputs.number.value);
-      formData.append("password", formState.inputs.password.value);
-      formData.append("image", formState.inputs.image.value); 
-      formData.append("role", "customer");
-      const responseData = await sendRequest(
-        process.env.REACT_APP_BACKEND_URL + "/users/registration",
-        "POST",
-        formData
-      );
-      history.push("/app/users/verification");
-      auth.login(responseData.id, responseData.token);
-  };
 
   return (
     <React.Fragment>
+      <ToastContainer />
       <ErrorModal error={error} onClear={clearError} />
       <img src={Img} alt="Register-img" className="box-img-logo" />
       <div className=" box-register">
         {isLoading && <LoadingSpinner asOverlay />}
-       {!flag && <form action="" className="myform" onSubmit={getOtpHandler} >
+       {!flag &&  <form action="" className="myform" onSubmit={onSignInSubmit} >
           <div class="modalText">
             <strong>Let’s get you started with your QuickCredit Account</strong>
           </div>
@@ -149,16 +181,7 @@ const cancelHandler = (e) => {
            <div className="input-verify">
            <PhoneInput value={number}  onChange={setNumber} countries={["NG"]} defaultCountry={"NG"} />
             </div>
-           {/* <Input
-            id="number"
-            element="input"
-            type="number"
-            label="Phone Number(Linked with BVN)"
-            placeholder="Phone Number"
-            validators={[VALIDATOR_PHONENUMBER(11)]}
-            errorText="Please enter your correct phone number"
-            onInput={inputHandler}
-          />  */}
+           
            <Input
             element="input"
             id="password"
@@ -177,15 +200,15 @@ const cancelHandler = (e) => {
               errorText="Please provide an image."
             />
           </div>
-          {/* <div id="recaptcha-container" /> */}
-          <button
+           <div id="recaptcha-container" /> 
+          <Button
             type="submit"
-            className="registerButton"
-            onClick={getOtpHandler}
+            disabled={!formState.isValid}
+            onClick={onSignInSubmit}
            
           >
             SIGNUP
-          </button>
+          </Button>
           <Link
             onClick={switchModeHandler}
             to="/app/users/login"
@@ -195,30 +218,23 @@ const cancelHandler = (e) => {
           </Link>
         </form>}
 
-        {flag && <form action="" className="myform" onSubmit={submitHandler}  >
+        {flag && <form action="" className="myform" onSubmit={onSubmitOtp}  >
           <div className="login-head">
-            <h1 className="login-p">Confirm and verify your number,</h1>
-          </div>
-          <div className="input-verify">
-            <PhoneInput
-              value={number}
-              onChange={setNumber}
-              countries={["NG"]}
-              defaultCountry={"NG"}
-            /> 
+            <h1 className="login-p">Verify your Phone-number,</h1>
           </div>
           <input
             type="number"
             placeholder="Enter OTP"
             className="input-verify"
+            onChange={(e) => setOtp(e.target.value)}
           />
           <button className="btn-left" onClick={cancelHandler}>
             CANCEL
           </button>
           <button className="btn-right">
-            SEND OTP
+            Verify OTP
           </button>
-        </form> }
+        </form> } 
       </div>
     </React.Fragment>
   );

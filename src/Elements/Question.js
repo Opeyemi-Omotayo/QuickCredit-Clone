@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 
 import "./Question.css";
@@ -8,7 +8,6 @@ const Question = (props) => {
 
   const showFAQsHandler = () => {
     setFlag(true);
-    
   };
 
   return (
@@ -18,7 +17,7 @@ const Question = (props) => {
           {props.text}
           <AiOutlinePlus className="showFAQs fl_right" />
         </p>
-      {flag && <p className="FAQsHide1">{props.answer}</p>}
+        {flag && <p className="FAQsHide1">{props.answer}</p>}
       </div>
     </React.Fragment>
   );

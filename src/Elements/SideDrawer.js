@@ -6,13 +6,19 @@ import img2 from "../components/Images/Loan.svg";
 import img3 from "../components/Images/Payment.svg";
 import img4 from "../components/Images/Transaction.svg";
 import { AiOutlineLogout } from "react-icons/ai";
+import { AuthContext } from "../context/auth-context";
 
 import "./SideDrawer.css";
+import { useContext } from "react";
 
 const SideDrawer = () => {
   const history = useHistory();
+  const auth = useContext(AuthContext);
+  
   const logoutHandler = () => {
     history.push("/");
+    auth.logout();
+    
   };
 
   const username = localStorage.getItem("user");

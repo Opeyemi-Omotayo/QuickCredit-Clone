@@ -26,4 +26,26 @@
   .info-div{
     width: 29%
   }
+
+  @media (max-width: 768px){
+    .info-h1{
+      font-weight: bold;
+      font-size: 51px
+  }
+
+  .info-div{
+    width: 70%
+  }
+  }
   
+  @media (max-width: 768px){
+    .info-h1{
+      font-weight: bold;
+      font-size: 21px
+  }
+
+  .info-div{
+    width: 100%;
+    margin-left: -6rem ;
+  }
+  }

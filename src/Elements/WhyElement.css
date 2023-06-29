@@ -33,3 +33,47 @@
 .animateStyle2{
   margin-right: -4rem;
 }
+
+@media (max-width: 768px){
+  .animateStyle{
+    margin-left: -9.5rem;
+  }
+
+  .animateStyle2{
+    margin-right: -10.5rem;
+  }
+}
+
+@media (max-width: 768px){
+  .animateStyle{
+    margin-left: -15rem;
+  }
+
+  .animateStyle2{
+    margin-right: -13rem;
+  }
+
+  .choose p{
+    font-size: 12px;
+  }
+
+  .choose1 p{
+    font-size: 12px;
+  }
+
+  .choose h1{
+    font-size: 16px;
+  }
+
+  .choose1 h1{
+    font-size: 16px;
+  }
+  .box-size{
+    width: 65%;
+    margin-top: -5rem;
+}
+.box-index{
+  width: 65%;
+  margin-top: 2rem;
+}
+}

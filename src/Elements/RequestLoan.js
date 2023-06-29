@@ -1,13 +1,16 @@
-import React from 'react';
-import SideDrawer from './SideDrawer';
-import ImageUpload from './ImageUpload';
-import Input from './Input';
-import { VALIDATOR_REQUIRE } from '../Validation/Validators';
-import { useForm } from '../hooks/form-hook';
-import { ToastContainer, toast } from 'react-toastify';
-
+import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
+import SideDrawer from "./SideDrawer";
+import ImageUpload from "./ImageUpload";
+import Input from "./Input";
+import { VALIDATOR_REQUIRE } from "../Validation/Validators";
+import { useForm } from "../hooks/form-hook";
+import { ToastContainer, toast } from "react-toastify";
+import { AuthContext } from "../context/auth-context";
 
 const RequestLoan = () => {
+  const auth = useContext(AuthContext);
+  const history = useHistory();
   const [formState, inputHandler, setFormData] = useForm(
     {
       loanAmount: {
@@ -39,35 +42,40 @@ const RequestLoan = () => {
     );
   };
 
-  const submitHandler = async(e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-   
-    const repayables = +formState.inputs.loanAmount.value + (formState.inputs.duration.value * 10);
 
-      const response = await fetch(process.env.REACT_APP_BACKEND_URL + "/users/loanrequests",{
-      method:"POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        loan_amount: formState.inputs.loanAmount.value,
-        duration: formState.inputs.duration.value,
-        repayable_amount: repayables,
-        created_at: new Date().toLocaleString() ,
-        status: "pending"
-      }),
-  });
-  toast('Loan request sent successfully!');
-  
-}
-  
+    const response = await fetch(
+      process.env.REACT_APP_BACKEND_URL + "/api/users/loanrequests",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
+        },
+        body: JSON.stringify({
+          loan_amount: +formState.inputs.loanAmount.value,
+          duration_in_days: +formState.inputs.duration.value,
+          status: "pending",
+        }),
+      }
+    );
     
-   
-  return <React.Fragment>
-    <SideDrawer />
-    <ToastContainer />
-    <div className="container">
-        <form action="" className="myform" style={{backgroundColor:"white"}} onSubmit={submitHandler}>
+    history.push("/app/users/dashboard");
+    toast("Loan request sent successfully!");
+  };
+
+  return (
+    <React.Fragment>
+      <SideDrawer />
+      <ToastContainer />
+      <div className="container">
+        <form
+          action=""
+          className="myform"
+          style={{ backgroundColor: "white" }}
+          onSubmit={submitHandler}
+        >
           <div class="modalText">
             <strong>Loan Request</strong>
           </div>
@@ -80,19 +88,21 @@ const RequestLoan = () => {
             validators={[VALIDATOR_REQUIRE()]}
             errorText="Please enter the loan amount"
             onInput={inputHandler}
-          /> 
-           <Input
+          />
+          <Input
             id="duration"
             element="input"
             type="number"
             label="Duration"
-            placeholder="Phone Number"
+            placeholder="Duration"
             validators={[VALIDATOR_REQUIRE()]}
             errorText="Please enter the duration"
             onInput={inputHandler}
-          /> 
+          />
           <div>
-            <label className="label-img">Bank Statement(Up to six(6) months)</label>
+            <label className="label-img">
+              Bank Statement(Up to six(6) months)
+            </label>
             <ImageUpload
               center
               id="image"
@@ -100,30 +110,37 @@ const RequestLoan = () => {
               errorText="Please provide an image."
             />
           </div>
-          <button
-            type="submit"
-            className="registerButton"
-          >
+          <button type="submit" className="registerButton">
             REQUEST LOAN
           </button>
         </form>
         <div className="single-card-loan-details">
           <h2>Loan Details</h2>
-            <div style={{ display:'flex'}}>
-              <h4>Loan Amount</h4>
-            <h4 className='span-loan'>{"₦" + formState.inputs.loanAmount.value + ".00"}</h4>
-            </div>
-            <div style={{ display:'flex'}}>
-              <h4>Duration</h4>
-            <h4 className='span-loan'>{formState.inputs.duration.value + "days"}</h4>
-            </div>
-            <div style={{ display:'flex'}}>
-              <h4>Repayable Amount</h4>
-            <h4 className='span-loan'>{"₦" + (+formState.inputs.loanAmount.value + (formState.inputs.duration.value * 10)) + ".00"}</h4>
-            </div>
+          <div style={{ display: "flex" }}>
+            <h4>Loan Amount</h4>
+            <h4 className="span-loan">
+              {"₦" + formState.inputs.loanAmount.value + ".00"}
+            </h4>
+          </div>
+          <div style={{ display: "flex" }}>
+            <h4>Duration</h4>
+            <h4 className="span-loan">
+              {formState.inputs.duration.value + "days"}
+            </h4>
+          </div>
+          <div style={{ display: "flex" }}>
+            <h4>Repayable Amount</h4>
+            <h4 className="span-loan">
+              {"₦" +
+                (+formState.inputs.loanAmount.value +
+                  formState.inputs.duration.value * 10) +
+                ".00"}
+            </h4>
           </div>
         </div>
+      </div>
     </React.Fragment>
-}
+  );
+};
 
-export default RequestLoan
+export default RequestLoan;

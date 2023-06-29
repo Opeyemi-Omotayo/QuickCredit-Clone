@@ -1,10 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import './Navigation.css';
 
 const Navigation = () => {
   return <ul className="fl_right navStyle">
-  <li><NavLink to="#aboutUS">ABOUT </NavLink></li>
+  <li><HashLink to="#aboutUS" smooth>ABOUT </HashLink></li>
     <li><NavLink to="#process">THE PROCESS</NavLink></li>
     <li><NavLink to="#whyUs">WHY US</NavLink></li>
     <li><NavLink to="#faqs">FAQs</NavLink></li>

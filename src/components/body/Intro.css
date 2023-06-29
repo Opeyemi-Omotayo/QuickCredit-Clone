@@ -26,3 +26,50 @@
   background-color: rgb(218, 244, 245);
   margin-top: -2.8rem;
 }
+
+@media (max-width: 768px) {
+  .boldH1 {
+    font-weight: bolder;
+    font-size: 55px;
+    width: 490px;
+    margin-left: 7rem;
+    padding-top: 40px;
+  }
+
+  .smallp {
+    font-size: 18px;
+    width: 600px;
+    margin-top: 1.5rem;
+    margin-left: 6rem;
+  }
+}
+
+@media (max-width: 414px) {
+  .boldH1 {
+    font-weight: bolder;
+    font-size: 23px;
+    width: 300px;
+    margin-left: 1.5rem;
+    padding-top: 40px;
+  }
+
+  .smallp {
+    font-size: 15px;
+    width: 310px;
+    margin-top: 1.5rem;
+    margin-left: 1.5rem;
+  }
+
+  .iphoneX {
+    margin-top: 7rem;
+    width: 150px;
+    margin-left: -2rem;
+    height: 110px;
+  }
+
+  .div-back {
+    background-color: rgb(218, 244, 245);
+    margin-top: -2.8rem;
+    height: 20rem;
+  }
+}

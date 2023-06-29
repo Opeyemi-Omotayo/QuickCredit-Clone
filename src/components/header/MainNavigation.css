@@ -1,7 +1,15 @@
 .wrapper {
   background-color: rgb(218, 244, 245);
-  height: 70px;
-  padding: 1.2rem;
+  height: 60px;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  position: sticky;
+  z-index: 999;
+}
+
+.wrapper.active{
+  background-color: white;
 }
 
 .fl_left {
@@ -10,4 +18,42 @@
 
 .header {
   margin-left: 25px;
+}
+
+.main-navigation__menu {
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  border: none;
+  display: flex;
+  float: right;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.main-navigation__menu span {
+  display: block;
+  width: 3rem;
+  height: 2.5px;
+  background: rgb(20, 20, 20);
+}
+
+.main-navigation__nav {
+  display: none;
+}
+
+.main-navigation__drawer {
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .main-navigation__menu {
+    display: none;
+  }
+
+  .main-navigation__nav {
+    display: block;
+  }
 }

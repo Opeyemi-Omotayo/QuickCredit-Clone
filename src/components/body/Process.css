@@ -11,11 +11,10 @@
     padding-bottom: 7px;
 }
 
-.boxContainer {
+.boxContaineer {
     width: 90%;
     padding: 20px;
     margin: 100px auto;
-    display: flex;
     flex-direction: row;
     justify-content: center;
 }
@@ -45,6 +44,7 @@
 .box {
     width: 330px;
     height: 400px;
+    margin-bottom: -14rem;
     background: rgb(254, 255, 255);
     margin: 0px 36px;
     transition: 1s;
@@ -52,14 +52,109 @@
 }
 
 .boxe{
-    margin-left: -12rem;
+    margin-left: 7.7rem;
+    margin-bottom: 3rem;
+}
+
+.boxee{
+    margin-left: 10.2rem;
+    margin-bottom: 3rem;
 }
 
 .boxeee{
-    margin-right: -12rem;
+    margin-left: 12.7rem;
 }
 
 .box:hover {
     z-index: 2;
     box-shadow: 4px 0 27px rgba(02, 3, 8, 0.2);
+}
+
+@media (min-width: 768px){
+    .boxContaineer {
+        width: 90%;
+        padding: 20px;
+        margin: 100px auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .box {
+        width: 330px;
+        height: 400px;
+        background: rgb(254, 255, 255);
+        margin: 0px 36px;
+        transition: 1s;
+        border-radius: 4%;
+    }
+
+    .boxe{
+        margin-left: -12rem;
+    }
+    
+    .boxeee{
+        margin-right: -12rem;
+    }
+    
+}
+
+@media (max-width: 414px){
+    .boxHead {
+        width: 90%;
+        padding: 20px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: rgb(42, 42, 253);
+        font-size: 16px;
+        margin-left: -0.8rem;
+    }
+    
+    .boxHead2 {
+        font-weight: bold;
+        font-size: 18px;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-left: -0.3rem;
+    }
+
+    .box {
+        width: 275px;
+        height: 400px;
+        margin-bottom: -14rem;
+        background: rgb(254, 255, 255);
+        margin: 0px 36px;
+        transition: 1s;
+        border-radius: 4%;
+    }
+
+    .boxe{
+        margin-top: -2rem;
+        margin-left: -1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .boxee{
+        margin-left: 1.7rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .boxeee{
+        margin-left: 4.2rem;
+    }
+    
+    .img-box {
+        padding-bottom: 5px;
+    }
+    
+    .box-p {
+        font-size: 14px;
+        padding-bottom: 7px;
+    }
+    
 }

@@ -16,6 +16,7 @@ const WhyElement = () => {
     });
     observer.observe(myRef.current);
   }, []);
+
   return (
     <React.Fragment>
       <div ref={myRef}>

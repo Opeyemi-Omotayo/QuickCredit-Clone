@@ -1,0 +1,20 @@
+.button {
+  font: inherit;
+  padding: 0.5rem 1.5rem;
+  border: 1px solid rgb(2, 141, 65);
+  border-radius: 4px;
+  background: rgb(2, 141, 65);
+  color: white;
+  cursor: pointer;
+  margin-right: 1rem;
+  text-decoration: none;
+  float: right;
+}
+
+.button:disabled,
+.button:hover:disabled {
+  background: #ccc;
+  color: #979797;
+  border-color: #ccc;
+  cursor: not-allowed;
+}

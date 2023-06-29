@@ -1,18 +1,18 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+
 import "./Loan.css";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const Loan = () => {
   const history = useHistory();
 
   const requestloanHandler = () => {
-history.push('/app/users/loan/request-loan');
-  }
+    history.push("/app/users/loan/request-loan");
+  };
+
   return (
     <React.Fragment>
-      <ToastContainer />
       <div className="container">
         <div className="single-card-loan">
           <h2>Active Loan</h2>

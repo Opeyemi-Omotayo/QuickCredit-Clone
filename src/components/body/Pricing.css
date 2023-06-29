@@ -10,3 +10,25 @@
 .formDiv-div {
   width: 100%;
 }
+
+@media (max-width: 768px){
+  .formDivContainer {
+    background-color: rgb(2, 2, 68);
+    color: white;
+    padding-left: 11rem;
+    padding-top: 7rem;
+    height: 68.3rem;
+    margin-top: 13rem;
+  }
+}
+
+@media (max-width: 768px){
+  .formDivContainer {
+    background-color: rgb(2, 2, 68);
+    color: white;
+    padding-left: 11rem;
+    padding-top: 7rem;
+    height: 56.3rem;
+    margin-top: 13rem;
+  }
+}

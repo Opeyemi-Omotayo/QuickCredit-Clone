@@ -1,3 +1,13 @@
-.body-container{
-    margin-left: 27rem;
-}
+
+
+
+@media (min-width: 768px) {
+    .main-navigation__menu {
+      display: none;
+    }
+  
+    .main-navigation__nav {
+      display: block;
+    }
+    
+  }

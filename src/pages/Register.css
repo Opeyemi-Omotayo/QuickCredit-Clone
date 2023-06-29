@@ -141,3 +141,17 @@
   width: 6rem;
   background-color: #00a051;
 }
+
+
+@media (max-width: 768px){
+  .box-register {
+    background-color: white;
+    width: 55%;
+    padding-left: 5px;
+    padding-right: 20px;
+      margin: 100px auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+  }
+}

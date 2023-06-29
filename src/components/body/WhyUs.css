@@ -14,3 +14,14 @@
   font-size: 32px;
   font-weight: bolder;
 }
+
+.boxHead {
+  width: 90%;
+  padding: 20px;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: rgb(15, 15, 15);
+  font-size: 18px;
+}
