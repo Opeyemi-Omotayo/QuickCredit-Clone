@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { app } from "../firebase";
 
 import { useForm } from "../hooks/form-hook";
 import Img from "../components/Images/Register.svg";
