@@ -21,10 +21,8 @@ const Loan = () => {
       .then((res) => res.json())
       .then((data) => {
         setData(data.retrievedLoanRequests);
-        console.log(data);
       });
   }, [token, UserId]);
-  console.log(data);
 
   const requestloanHandler = () => {
     if(data.length){
