@@ -24,7 +24,7 @@ const AdminDashBoard = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setData(data.users);
+        setData(data.loans);
       });
   }, [auth.token]);
 
@@ -73,7 +73,7 @@ const AdminDashBoard = () => {
       {isLoading && <LoadingSpinner asOverlay />}
       <div className="adminContainer">
         <h3 >Loan Request</h3>
-        <table>
+        <table className="admin-table">
           <tr >
           <th className="header-row">User</th>
             <th className="header-row">Loan Amount</th>
@@ -92,15 +92,13 @@ const AdminDashBoard = () => {
                   <td>{details.duration_in_days} days</td>
                   <td>{details.repayable_amount}</td>
                   <td>{details.created_at} </td>
-                  <td><ToggleButton  id={details.id}
-                      onClick={statusHandler} checked={details.status === "APPROVED"}/></td>
-                  <td>
-                    <button
-                      className="status"
-                    
-                    >
+                  <td><button className="status">
                       {details.status }
                     </button>
+                    <ToggleButton  id={details.id}
+                      onClick={statusHandler} checked={details.status === "APPROVED"}/></td>
+                  <td>
+                    
                   </td>
                 </tr>
               );

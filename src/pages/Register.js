@@ -142,7 +142,7 @@ const cancelHandler = (e) => {
     <React.Fragment>
       <ToastContainer />
       <ErrorModal error={error} onClear={clearError} />
-      <img src={Img} alt="Register-img" className="box-img-logo" />
+      <img src={Img} alt="Register-img" className="box-img-logo" onClick={cancelHandler} />
       <div className=" box-register">
         {isLoading && <LoadingSpinner asOverlay />}
        {!flag &&  <form action="" className="myform" onSubmit={onSignInSubmit} >

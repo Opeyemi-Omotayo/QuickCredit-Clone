@@ -9,6 +9,12 @@
     justify-content: center;
 }
 
+.home-ds-btn{
+  padding: 8px;
+  background-color: grey;
+  width: 5rem;
+}
+
 .box-img-logo{
   display: flex;
     flex-direction: row;
@@ -17,6 +23,7 @@
     width: 5%;
     padding: 17px;
     margin: auto;
+    cursor: pointer;
     margin-bottom: -4rem;
 }
 

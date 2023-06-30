@@ -24,7 +24,9 @@
 }
 
 .single-card-loan button{
-    margin-left: 10rem;
+    margin-left: 8rem;
+    text-align: center;
+    align-items: center;
     height: 40px;
     width: 10rem;
     background-color: #008000;
@@ -58,7 +60,6 @@ padding-left: 2rem;
 }
 
 .transaction-history{
-    height: 200px;
     width: 98%;
 }
 
