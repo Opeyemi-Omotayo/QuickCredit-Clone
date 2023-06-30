@@ -1,24 +1,24 @@
 import React, { useEffect, useContext, useState} from 'react';
-import { AuthContext } from '../context/auth-context';
 import "./TransactionHistory.css";
 
 const TransactionHistory = () => {
-const auth = useContext(AuthContext);
 const [data, setData] = useState([]);
+const UserId = localStorage.getItem('id');
+const token = localStorage.getItem('token');
 
 useEffect(() => {
-  fetch(process.env.REACT_APP_BACKEND_URL + `/api/users/${auth.userId}/loanrequests`, {
+  fetch(process.env.REACT_APP_BACKEND_URL + `/api/users/${UserId}/loanrequests`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-       Authorization: "Bearer " + auth.token,
+       Authorization: "Bearer " + token,
     },
   })
     .then((res) => res.json())
     .then((data) => {
       setData(data.retrievedLoanRequests);
     });
-}, [auth.token, auth.userId]);
+}, [token, UserId]);
 
   return  <div className="container">
   <div className="single-card-loan transaction-history">

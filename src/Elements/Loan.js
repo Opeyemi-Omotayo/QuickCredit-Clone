@@ -1,32 +1,32 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { AuthContext } from "../context/auth-context";
 
 import "./Loan.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const Loan = () => {
   const history = useHistory();
-  const auth = useContext(AuthContext);
   const [data, setData] = useState([]);
-
+  const UserId = localStorage.getItem('id');
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL + `/api/users/${auth.userId}/loanrequests`, {
+    fetch(process.env.REACT_APP_BACKEND_URL + `/api/users/${UserId}/loanrequests`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-         Authorization: "Bearer " + auth.token,
+         Authorization: "Bearer " + token,
       },
     })
       .then((res) => res.json())
       .then((data) => {
         setData(data.retrievedLoanRequests);
+        console.log(data);
       });
-  }, [auth.token, auth.userId]);
+  }, [token, UserId]);
+  console.log(data);
 
   const requestloanHandler = () => {
-
     if(data.length){
       history.push("/app/users/history");
     }else{
@@ -39,7 +39,7 @@ const Loan = () => {
       <div className="container">
         <div className="single-card-loan">
          <h2>Active Loan</h2>
-         {data.length ? (<><p>You have a loan</p>
+         {data.length ? (<><p>Click below to see more information abour your loan!</p>
           <button onClick={requestloanHandler}>See More</button></>) : (<><p>You have no active loan</p>
           <button onClick={requestloanHandler}>Request Loan</button></>) }   
         </div>

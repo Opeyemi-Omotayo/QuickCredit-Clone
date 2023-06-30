@@ -57,13 +57,15 @@ const Login = () => {
           password: formState.inputs.password.value,
         }),
         {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + auth.token,
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ' + auth.token
         }
       );
 
+  
       const user = jwt(responseData.token);
       localStorage.setItem("token", responseData.token);
+      localStorage.setItem("id", user.userId);
       localStorage.setItem("user", user.username);
       if (user.role === "admin") {
         history.push("/app/users/admin");
@@ -78,17 +80,12 @@ const Login = () => {
 
   const homeHandler = () => {
     history.push("/");
-  };
+  }
 
   return (
     <React.Fragment>
       <ToastContainer />
-      <img
-        src={Img}
-        alt="Register-img"
-        className="box-img-logo"
-        onClick={homeHandler}
-      />
+      <img src={Img} alt="Register-img" className="box-img-logo" onClick={homeHandler}/>
       <div className=" box-register">
         {isLoading && <LoadingSpinner asOverlay />}
         <form action="" className="myform" onSubmit={submitHandler}>
