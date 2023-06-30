@@ -83,6 +83,9 @@ const Register = () => {
 
   const onSignInSubmit = (e) => {
     e.preventDefault();
+    if(!number){
+      toast("Please enter phone number!");
+    }
     setUpRecaptcha();
     let phoneNumber = number;
     let appVerifier = window.recaptchaVerifier;
