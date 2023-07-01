@@ -13,6 +13,7 @@
 .single-card-loan p{
     padding-top: 2rem;
    text-align: center;
+   align-items: center;
    color: rgb(15, 172, 235);
 }
 
