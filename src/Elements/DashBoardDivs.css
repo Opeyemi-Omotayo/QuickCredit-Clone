@@ -11,14 +11,14 @@
         grid-gap: 20px;
         padding: 0px 30px;
         margin-top: 50px;
-        margin-left: 15.7rem;
+        margin-left: 16.3rem;
     }
 
     .single-card{
         height: 100px;
         background-color: white;
         position: relative;
-        width: 16.7rem;
+        width: 17rem;
         padding: 3px;
         cursor: pointer;
         box-shadow: 3px 5px 10px rgba(0,0,0,0.1);

@@ -73,7 +73,7 @@ const SideDrawer = () => {
               activeClassName="active-link"
               className="navStylee"
             >
-              TransactionHistory
+              Transaction History
             </NavLink>
           </div>
         </ul>
