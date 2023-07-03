@@ -11,6 +11,12 @@ I built a clone app for quick credit.Quick Credit is a lending platform that pro
 - Firebase
 - React Toasify
 
+## Roadmap
+
+- Home
+- Loan Calculator
+- Login [if you're outside Nigeria and you're unable to create an account.Kindly use this details (username: test1000@test.com, password: omotayo)]
+
 
 ## Production
 Product display : [Production Website Link](https://quick-credit-clone.vercel.app/)
