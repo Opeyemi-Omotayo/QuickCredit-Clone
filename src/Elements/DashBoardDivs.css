@@ -11,7 +11,7 @@
         grid-gap: 20px;
         padding: 0px 30px;
         margin-top: 50px;
-        margin-left: 16.3rem;
+        margin-left: 15.7rem;
     }
 
     .single-card{
@@ -63,3 +63,27 @@
             border-radius: 8px;
         }
     }  
+
+    @media (min-width: 1281px) {
+        .container{
+        width: 75%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 20px;
+        padding: 0px 30px;
+        margin-top: 50px;
+        margin-left: 18.7rem;
+    }
+
+    .single-card{
+        height: 100px;
+        background-color: white;
+        position: relative;
+        width: 18.5rem;
+        padding: 3px;
+        cursor: pointer;
+        box-shadow: 3px 5px 10px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+
+    }
