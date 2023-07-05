@@ -1,4 +1,4 @@
-# Backend For QuickCredit
+# QuickCredit Clone
 
 ## About
 
