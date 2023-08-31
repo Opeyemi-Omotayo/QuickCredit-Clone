@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import React from "react";
 import Fig1 from "../components/Images/Fig1.svg";
 import Fig2 from "../components/Images/Fig2.svg";
 import Fig3 from "../components/Images/Fig3.svg";

@@ -12,12 +12,12 @@ const Question = (props) => {
 
   return (
     <React.Fragment>
-      <div className="questions" key={props.id}>
-        <p className="FAQs" onClick={showFAQsHandler}>
+      <div className=" mx-[1rem] lg:mx-[11rem] xl:mx-[13rem] mb-4 text-xs md:text-sm" key={props.id}>
+        <p className="flex items-center justify-between px-4 py-3 bg-white border border-green-600 rounded-lg shadow" onClick={showFAQsHandler}>
           {props.text}
-          <AiOutlinePlus className="showFAQs fl_right" />
+          <AiOutlinePlus className="" />
         </p>
-        {flag && <p className="FAQsHide1">{props.answer}</p>}
+        {flag && <p className="px-4 py-3 bg-green-300">{props.answer}</p>}
       </div>
     </React.Fragment>
   );

@@ -4,10 +4,12 @@ import Question from "../../Elements/Question";
 const FAQs = () => {
   return (
     <React.Fragment>
-      <section id="faqs">
-        <h2 className="boxHead">FAQs</h2>
-        <h1 className="boxHead2">Frequently Asked Questions</h1>
-        <div className="FAQsDiv">
+      <section id="faqs" >
+      <div className="flex flex-col items-center justify-center mb-[6rem] mt-[10rem]">
+        <h2 className="text-sm font-semibold text-blue-900">FAQs</h2>
+        <h1 className="text-xl font-bold lg:text-2xl">Frequently Asked Questions</h1>
+      </div>
+        <div>
           <Question id="1" text=" Q1. I’m receiving an error: “Enable Geolocation”. How do I resolve this?" answer="Please ensure that location settings on your mobile device or web browser."/>
          <Question id="2" text="Q2. I don’t know my BVN. What do I do?" answer="Just dial *565*0#.Please note: This will only work if you are making the request from the same phone number currently linked to your bank account"/>
           <Question id="3" text="Q3. How long does it take to process a Quick Credit loan?" answer="The entire process can be completed in no time! Once you complete our short application form and accept the loan offer provided, your information is reviewed, and a loan decision is typically provided within minutes. If approved, funds will be received within a few moments of the application process being completed.."/>
