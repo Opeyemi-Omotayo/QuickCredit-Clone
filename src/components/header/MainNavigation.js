@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 
 import logo from "../../logo.svg";
-import './MainNavigation.css';
+//import './MainNavigation.css';
 import Navigation from "./Navigation";
 import Backdrop from "../../Elements/Backdrop";
 import NavSideDrawer from "../../Elements/NavSideDrawer";
 import Drawer from "./Drawer";
 
 const MainNavigation =() => {
+
   const [openDrawer, setOpenDrawer] = useState(false);
   const [header, setHeader] = useState(false);
 
@@ -38,7 +39,7 @@ window.addEventListener("scroll", changeHeaderBackground);
       </NavSideDrawer>
 
     
-      <header>
+      <header className="bg-orange-500">
         <div className="header fl_left">
         <img src={logo}   alt="logo" /> 
         </div>
@@ -55,6 +56,8 @@ window.addEventListener("scroll", changeHeaderBackground);
         </button>
       </header>
     </div>
+
+   
     </React.Fragment>
 
     

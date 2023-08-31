@@ -6,11 +6,11 @@ import Pricing from '../components/body/Pricing';
 import Process from '../components/body/Process';
 import WhyUs from '../components/body/WhyUs';
 import Footer from '../components/footer/Footer';
-import MainNavigation from '../components/header/MainNavigation';
+import Header from '../components/header/Header';
 
 const HomePage = () => {
   return <React.Fragment>
-    <MainNavigation />
+    <Header />
     <Intro />
     <About />
     <Process />
