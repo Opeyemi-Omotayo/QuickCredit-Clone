@@ -19,7 +19,7 @@ setAmount(e.target.value);
 
   return (
     <React.Fragment>
-      <div className=" font-mono text-gray-100 w-full lg:w-[55%] bg-blue-800 h-[33rem] mt-[2rem] lg:mt-[-3rem]  rounded-md p-10">
+      <div className=" text-gray-100 w-full lg:w-[55%] bg-blue-800 h-[33rem] mt-[2rem] lg:mt-[-3rem]  rounded-md p-10">
         <form className="">
           <div className="flex flex-col mb-6">
             <label htmlFor="loanAmount" className="font-semibold">Loan Amount</label>

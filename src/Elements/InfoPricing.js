@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const InfoPricing = () => {
   return (
     <React.Fragment>
-      <div className="w-full lg:w-[37%] flex flex-col justify-center font-mono text-white mr-[4rem] mt-8 lg:mt-0">
+      <div className="w-full lg:w-[37%] flex flex-col justify-center  text-white mr-[4rem] mt-8 lg:mt-0">
         <h1 className="text-4xl font-semibold lg:text-5xl ">Simple & Fair Pricing</h1>
         <p className="py-8 text-sm text-gray-100 lg:text-lg">
           Quick Credit offers a super-fast loan solution without paperwork and
