@@ -1,4 +1,5 @@
-import React from "react";
+import React,{useEffect} from "react";
+import AOS from "aos";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 
 import Register from "./pages/Register";
@@ -15,6 +16,10 @@ import { AuthContext } from "./context/auth-context";
 import { useAuth } from "./hooks/auth-hook";
 
 function App() {
+  useEffect(() => {
+    AOS.init({ duration: 1500, once: true });
+    AOS.refresh();
+  }, []);
   const { token, login, logout, userId } = useAuth();
 
   let routes;
