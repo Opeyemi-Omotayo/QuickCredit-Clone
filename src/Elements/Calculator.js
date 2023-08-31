@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import { AiOutlineCheck } from "react-icons/ai";
 
-import "./Calculaator.css";
-
 const Calculator = () => {
   const [amount, setAmount] = useState("");
   const [duration, setDuration] = useState("");
@@ -21,24 +19,24 @@ setAmount(e.target.value);
 
   return (
     <React.Fragment>
-      <div className="fl_right formDiv">
-        <form className="formDiv-form">
-          <div>
-            <label htmlFor="loanAmount">Loan Amount</label>
+      <div className=" font-mono text-gray-100 w-full lg:w-[55%] bg-blue-800 h-[33rem] mt-[2rem] lg:mt-[-3rem]  rounded-md p-10">
+        <form className="">
+          <div className="flex flex-col mb-6">
+            <label htmlFor="loanAmount" className="font-semibold">Loan Amount</label>
             <input
               type="text"
-              className="input-calculator"
+              className="p-4 text-white rounded-md outline-none bg-blue-950"
               id="loanAmount"
               name= "loanAmount"
               placeholder="Enter Amount"
               onChange={handleChange}
             />
           </div>
-          <div className="formDiv-div">
-            <label htmlFor="duration">Duration</label>
+          <div className="flex flex-col">
+            <label htmlFor="duration" className="font-semibold">Duration</label>
             <input
               type="text"
-              className="input-calculator"
+              className="p-4 text-white rounded-md outline-none bg-blue-950"
               id="duration"
               name="duration"
               placeholder="0"
@@ -46,33 +44,30 @@ setAmount(e.target.value);
             />
           </div>
         </form>
-        <div className="formDiv-div2">
-          <section className="formDiv-sec">
-            <div className="fl_left">
+       
+          <section className="my-9">
               <h5>YOU'LL PAYBACK</h5>
               <p id="calc">{"₦" + (+amount + (duration * 10) ) + ".00"} ----- {newDate}</p>
-            </div>
           </section>
 
-          <div className="formDes">
-            <p className="formDes-p">
+          <div>
+            <p className="flex items-center my-4">
               Free automatic settlement between 24 hours
-              <AiOutlineCheck />
+              <AiOutlineCheck className="ml-4"/>
             </p>
-            <p className="formDes-p">
+            <p className="flex items-center mb-4">
               No hidden fees or charges
-              <AiOutlineCheck />
+              <AiOutlineCheck className="ml-4"/>
             </p>
-            <p className="formDes-p">
+            <p className="flex items-center mb-4">
               Zero integration fee
-              <AiOutlineCheck />
+              <AiOutlineCheck className="ml-4"/>
             </p>
-            <p className="formDes-p">
+            <p className="flex items-center mb-4">
               Zero maintenance fee
-              <AiOutlineCheck />
+              <AiOutlineCheck className="ml-4"/>
             </p>
           </div>
-        </div>
       </div>
     </React.Fragment>
   );
