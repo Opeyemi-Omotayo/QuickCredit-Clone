@@ -11,7 +11,6 @@ import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH
 } from "../Validation/Validators";
-import "./Register.css";
 import Input from "../Elements/Input";
 import { useHttp } from "../hooks/http-hook";
 import LoadingSpinner from "../Elements/LoadingSpinner";
@@ -110,27 +109,25 @@ signInWithPhoneNumber(auth, phoneNumber, appVerifier)
       .confirm(otpInput)
       .then(function (result) {
         let user = result.user;
-        
+        fetch(
+          process.env.REACT_APP_BACKEND_URL + "/api/users/registration",{
+          method: "POST",
+          body: JSON.stringify({
+            username: formState.inputs.username.value,
+            name: formState.inputs.name.value,
+            email: formState.inputs.email.value,
+            number: number,
+            password: formState.inputs.password.value,
+            image: formState.inputs.image.value,
+            role: "customer"
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          }
       })
       .catch(function (error) {
         toast("Incorrect OTP");
       });
-
-      const responseData = fetch(
-        process.env.REACT_APP_BACKEND_URL + "/api/users/registration",{
-        method: "POST",
-        body: JSON.stringify({
-          username: formState.inputs.username.value,
-          name: formState.inputs.name.value,
-          email: formState.inputs.email.value,
-          number: number,
-          password: formState.inputs.password.value,
-          image: formState.inputs.image.value,
-          role: "customer"
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        }
     });
       history.push("/app/users/login");
   };
@@ -145,12 +142,13 @@ const cancelHandler = (e) => {
     <React.Fragment>
       <ToastContainer />
       <ErrorModal error={error} onClear={clearError} />
-      <img src={Img} alt="Register-img" className="box-img-logo" onClick={cancelHandler} />
-      <div className=" box-register">
+      <div className="flex flex-col items-center justify-center font-mono">
+      <img src={Img} alt="Register-img" className="w-[70px] h-[70px] my-[4rem]" onClick={cancelHandler} />
+      <div className="w-[80%] md:w-[60%] lg:w-[40%] bg-white rounded-md shadow-md mb-[4rem]">
         {isLoading && <LoadingSpinner asOverlay />}
-       {!flag &&  <form action="" className="myform" onSubmit={onSignInSubmit} >
-          <div class="modalText">
-            <strong>Let’s get you started with your QuickCredit Account</strong>
+       {!flag &&  <form action="" className="p-8 " onSubmit={onSignInSubmit} >
+          <div className="text-2xl font-bold">
+            <h1>Let’s get you started with your QuickCredit Account</h1>
           </div>
           <Input
             id="username"
@@ -182,8 +180,8 @@ const cancelHandler = (e) => {
             errorText="Please enter your correct email address"
             onInput={inputHandler}
           /> 
-           <div className="input-verify">
-           <PhoneInput value={number}  onChange={setNumber} countries={["NG"]} defaultCountry={"NG"} />
+           <div className="mb-4">
+           <PhoneInput value={number} className="p-4 bg-gray-100 rounded-md" onChange={setNumber} countries={["NG"]} defaultCountry={"NG"} />
             </div>
            
            <Input
@@ -196,7 +194,7 @@ const cancelHandler = (e) => {
             onInput={inputHandler}
           />
           <div>
-            <label className="label-img">Identification Document</label>
+            <label className="pb-8">Identification Document</label>
             <ImageUpload
               center
               id="image"
@@ -205,7 +203,8 @@ const cancelHandler = (e) => {
             />
           </div>
            <div id="recaptcha-container" /> 
-          <Button
+           <div className="p-4 ">
+           <Button
             type="submit"
             disabled={!formState.isValid}
             onClick={onSignInSubmit}
@@ -216,29 +215,35 @@ const cancelHandler = (e) => {
           <Link
             onClick={switchModeHandler}
             to="/app/users/login"
-            className="shuttleBtn"
+            className="pt-4 text-xs md:text-sm hover:text-green-600"
           >
             SWITCH TO LOGIN
           </Link>
+           </div>
+         
         </form>}
 
-        {flag && <form action="" className="myform" onSubmit={onSubmitOtp}  >
-          <div className="login-head">
-            <h1 className="login-p">Verify your Phone-number,</h1>
+        {flag && <form action="" className="p-8" onSubmit={onSubmitOtp}  >
+          <div className="pb-6">
+            <h1 className="text-2xl font-bold">Verify your Phone-number,</h1>
           </div>
           <input
             type="number"
             placeholder="Enter OTP"
-            className="input-verify"
+            className="w-full p-3 bg-gray-100 rounded-sm"
             onChange={(e) => setOtp(e.target.value)}
           />
-          <button className="btn-left" onClick={cancelHandler}>
+          <div className="flex items-center justify-between mt-6">
+          <button className="px-6 py-4 text-white bg-green-600 rounded shadow" onClick={cancelHandler}>
             CANCEL
           </button>
-          <button className="btn-right">
+          <button className="px-6 py-4 text-white bg-green-600 rounded shadow">
             Verify OTP
           </button>
+          </div>
+         
         </form> } 
+      </div>
       </div>
     </React.Fragment>
   );

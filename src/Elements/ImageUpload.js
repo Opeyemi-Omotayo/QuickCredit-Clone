@@ -1,7 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
 
-import './ImageUpload.css';
-
 const ImageUpload = props => {
   const [file, setFile] = useState();
   const [previewUrl, setPreviewUrl] = useState();
@@ -40,7 +38,8 @@ const ImageUpload = props => {
   };
 
   return (
-    <div className="form-control">
+    <>
+    <div className="bg-gray-100 border border-gray-800 border-dotted">
       <input
         id={props.id}
         ref={filePickerRef}
@@ -49,15 +48,16 @@ const ImageUpload = props => {
         accept=".jpg,.png,.jpeg"
         onChange={pickedHandler}
       />
-      <div className={`image-upload ${props.center && 'center'}`}>
-        <div className="image-upload__preview">
-          {previewUrl && <img src={previewUrl} alt="Preview" />}
-          {!previewUrl && <p onClick={pickImageHandler} className="click-p">click to upload</p>}
+      <div className={` ${props.center && 'flex items-center justify-center flex-col'}`}>
+        <div className="h-[120px] w-full">
+          {previewUrl && <img src={previewUrl} className='h-[120px] w-full' alt="Preview" />}
+          {!previewUrl &&<p className='text-sm' onClick={pickImageHandler}>click to upload</p>}
         </div>
        
       </div>
-      {!isValid && <p>{props.errorText}</p>}
     </div>
+     {!isValid && <p className='text-sm text-red-500'>{props.errorText}</p>}
+    </>
   );
 };
 
