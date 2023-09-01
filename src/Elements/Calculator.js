@@ -9,8 +9,6 @@ const Calculator = () => {
 
   const handleChange = (e) => {
 setAmount(e.target.value);
-//setDuration(e.target.value);
-
   }
 
   const handleDurationChange = (e) => {
@@ -19,13 +17,13 @@ setAmount(e.target.value);
 
   return (
     <React.Fragment>
-      <div className=" text-gray-100 w-full lg:w-[55%] bg-blue-800 h-[33rem] mt-[2rem] lg:mt-[-3rem]  rounded-md p-10">
+      <div className=" text-gray-100 w-full lg:w-[55%] bg-blue-800 h-[33rem] mt-[2rem] lg:mt-[-3rem]  rounded-md p-4 lg:p-10">
         <form className="">
           <div className="flex flex-col mb-6">
             <label htmlFor="loanAmount" className="font-semibold">Loan Amount</label>
             <input
               type="text"
-              className="p-4 text-white rounded-md outline-none bg-blue-950"
+              className="p-3 text-white rounded-md outline-none md:p-4 bg-blue-950"
               id="loanAmount"
               name= "loanAmount"
               placeholder="Enter Amount"
@@ -36,7 +34,7 @@ setAmount(e.target.value);
             <label htmlFor="duration" className="font-semibold">Duration</label>
             <input
               type="text"
-              className="p-4 text-white rounded-md outline-none bg-blue-950"
+              className="p-3 text-white rounded-md outline-none md:p-4 bg-blue-950"
               id="duration"
               name="duration"
               placeholder="0"
@@ -51,19 +49,19 @@ setAmount(e.target.value);
           </section>
 
           <div>
-            <p className="flex items-center my-4">
+            <p className="flex items-center my-4 text-sm lg:text-lg">
               Free automatic settlement between 24 hours
               <AiOutlineCheck className="ml-4"/>
             </p>
-            <p className="flex items-center mb-4">
+            <p className="flex items-center mb-4 text-sm lg:text-lg">
               No hidden fees or charges
               <AiOutlineCheck className="ml-4"/>
             </p>
-            <p className="flex items-center mb-4">
+            <p className="flex items-center mb-4 text-sm lg:text-lg">
               Zero integration fee
               <AiOutlineCheck className="ml-4"/>
             </p>
-            <p className="flex items-center mb-4">
+            <p className="flex items-center mb-4 text-sm lg:text-lg">
               Zero maintenance fee
               <AiOutlineCheck className="ml-4"/>
             </p>

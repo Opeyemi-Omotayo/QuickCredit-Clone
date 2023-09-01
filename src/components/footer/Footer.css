@@ -1,37 +1,3 @@
-.footerr {
-  padding: -4rem ;
-  margin-top: -3rem;
-  padding-bottom: 1.5rem;
-}
-
-.footer__nav {
-  list-style: none;
-  justify-content: center;
-}
-
-.footer__item {
-  margin-right: 4rem;
-}
-
-.footer__item p, .footer__item h6{
-  color: black;
-}
-
-@media (min-width: 415px){
-  .footer__nav {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-  }
-
-  .footer__item {
-    margin-right: 4rem;
-  }
-
-  .footerr {
-    padding: 5rem 7rem;
-  }
-}
 
 .footer-img {
   background-color: rgb(218, 244, 245);

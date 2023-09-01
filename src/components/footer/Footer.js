@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <h1 className="pb-3 text-lg font-medium ">Contact</h1>
+          <h1 className="pb-3 text-lg font-bold ">Contact</h1>
           <ul className="space-y-5 cursor-pointer">
             <li>Landline : +234(0) 903 414 4706</li>
             <li>Mobile : +234(0) 811 134 6797</li>
@@ -39,7 +39,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h1 className="pb-3 text-lg font-medium ">Company</h1>
+          <h1 className="pb-3 text-lg font-bold ">Company</h1>
           <ul className="space-y-5 cursor-pointer">
             <li>Legal</li>
             <li>Terms & Condition</li>
@@ -47,7 +47,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h1 className="pb-3 text-lg font-medium ">Download</h1>
+          <h1 className="pb-3 text-lg font-bold ">Download</h1>
           <ul className="space-y-5 cursor-pointer">
             <li>From App Store or Google Play</li>
           </ul>
