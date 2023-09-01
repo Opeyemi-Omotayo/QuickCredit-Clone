@@ -1,7 +1,6 @@
 import React, { useReducer, useEffect } from 'react';
 
 import { validate } from '../Validation/Validators';
-import './Input.css';
 
 const inputReducer = (state, action) => {
   switch (action.type) {
@@ -60,6 +59,11 @@ const Input = props => {
         onChange={changeHandler}
         onBlur={touchHandler}
         value={inputState.value}
+        className={`${
+          !inputState.isValid &&
+          inputState.isTouched &&
+          "bg-red-200 border-red-600"
+        } h-[32px] bg-gray-100 border rounded-md p-6 outline-none`}
       />
     ) : (
       <textarea
@@ -72,14 +76,14 @@ const Input = props => {
     );
 
   return (
-    <div
-      className={`form-control ${!inputState.isValid &&
-        inputState.isTouched &&
-        'form-control--invalid'}`}
-    >
-      <label htmlFor={props.id}>{props.label}</label>
+    <div  className={`w-full flex flex-col mb-5`}>
+      <label  className={`${
+          !inputState.isValid && inputState.isTouched && "text-red-600"
+        }`} htmlFor={props.id}>{props.label}</label>
       {element}
-      {!inputState.isValid && inputState.isTouched && <p>{props.errorText}</p>}
+      {!inputState.isValid && inputState.isTouched && <p className={`${
+            !inputState.isValid && inputState.isTouched && "text-red-600 text-xs lg:text-sm"
+          }`}>{props.errorText}</p>}
     </div>
   );
 };

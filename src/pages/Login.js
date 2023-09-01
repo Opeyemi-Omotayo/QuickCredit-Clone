@@ -12,8 +12,6 @@ import LoadingSpinner from "../Elements/LoadingSpinner";
 import { AuthContext } from "../context/auth-context";
 import Button from "../Elements/Button";
 
-import "./Register.css";
-
 const Login = () => {
   const auth = useContext(AuthContext);
   const history = useHistory();
@@ -57,12 +55,11 @@ const Login = () => {
           password: formState.inputs.password.value,
         }),
         {
-          'Content-Type': 'application/json',
-          Authorization: 'Bearer ' + auth.token
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + auth.token,
         }
       );
 
-  
       const user = jwt(responseData.token);
       localStorage.setItem("token", responseData.token);
       localStorage.setItem("id", user.userId);
@@ -80,47 +77,54 @@ const Login = () => {
 
   const homeHandler = () => {
     history.push("/");
-  }
+  };
 
   return (
     <React.Fragment>
       <ToastContainer />
-      <img src={Img} alt="Register-img" className="box-img-logo" onClick={homeHandler}/>
-      <div className=" box-register">
-        {isLoading && <LoadingSpinner asOverlay />}
-        <form action="" className="myform" onSubmit={submitHandler}>
-          <div className="login-head">
-            <h1 className="login-p">Welcome Back,</h1>
-            <small className="login-small">Sign in to continue</small>
-          </div>
-          <Input
-            id="email"
-            element="input"
-            type="text"
-            label="Email"
-            placeholder="Email Address"
-            validators={[VALIDATOR_EMAIL()]}
-            errorText="Please enter your registered email address"
-            onInput={inputHandler}
-          />
-          <Input
-            element="input"
-            id="password"
-            type="password"
-            label="Password"
-            validators={[VALIDATOR_MINLENGTH(6)]}
-            errorText="Please enter your registered password."
-            onInput={inputHandler}
-          />
-          <Button disabled={!formState.isValid}>LOG IN</Button>
-          <Link
-            onClick={switchModeHandler}
-            to="/app/users/registration"
-            className="shuttleBtn"
-          >
-            SWITCH TO SIGNUP
-          </Link>
-        </form>
+      <div className="flex flex-col items-center justify-center font-mono h-[100vh]">
+      <img
+        src={Img}
+        alt="Register-img"
+        className="w-[70px] h-[70px] mb-[1.5rem]"
+        onClick={homeHandler}
+      />
+        <div className="w-[80%] md:w-[60%] lg:w-[40%] bg-white rounded-md shadow-md">
+          {isLoading && <LoadingSpinner asOverlay />}
+          <form action="" className="p-8" onSubmit={submitHandler}>
+            <div className="pb-6">
+              <h1 className="text-2xl font-bold">Welcome Back,</h1>
+              <small className="text-sm">Sign in to continue</small>
+            </div>
+            <Input
+              id="email"
+              element="input"
+              type="text"
+              label="Email"
+              placeholder="Email Address"
+              validators={[VALIDATOR_EMAIL()]}
+              errorText="Please enter your registered email address"
+              onInput={inputHandler}
+            />
+            <Input
+              element="input"
+              id="password"
+              type="password"
+              label="Password"
+              validators={[VALIDATOR_MINLENGTH(6)]}
+              errorText="Please enter your registered password."
+              onInput={inputHandler}
+            />
+            <Button disabled={!formState.isValid}>LOG IN</Button>
+            <Link
+              onClick={switchModeHandler}
+              to="/app/users/registration"
+              className="text-xs md:text-sm hover:text-green-600"
+            >
+              SWITCH TO SIGNUP
+            </Link>
+          </form>
+        </div>
       </div>
     </React.Fragment>
   );
