@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
-import SideDrawer from "./SideDrawer";
 import ImageUpload from "./ImageUpload";
 import Input from "./Input";
 import { VALIDATOR_REQUIRE } from "../Validation/Validators";
@@ -45,7 +44,7 @@ const RequestLoan = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(
+    await fetch(
       process.env.REACT_APP_BACKEND_URL + "/api/users/loanrequests",
       {
         method: "POST",
@@ -67,17 +66,16 @@ const RequestLoan = () => {
 
   return (
     <React.Fragment>
-      <SideDrawer />
       <ToastContainer />
-      <div className="container">
+      <div className="flex flex-col items-start justify-between m-8 md:flex-row ">
         <form
           action=""
-          className="myform"
+          className="p-8 bg-white rounded-md shadow-md w-full md:w-[49%]"
           style={{ backgroundColor: "white" }}
           onSubmit={submitHandler}
         >
-          <div class="modalText">
-            <strong>Loan Request</strong>
+          <div class="text-xl font-semibold pb-4">
+            <h1>Loan Request</h1>
           </div>
           <Input
             id="loanAmount"
@@ -100,7 +98,7 @@ const RequestLoan = () => {
             onInput={inputHandler}
           />
           <div>
-            <label className="label-img">
+            <label >
               Bank Statement(Up to six(6) months)
             </label>
             <ImageUpload
@@ -110,25 +108,27 @@ const RequestLoan = () => {
               errorText="Please provide an image."
             />
           </div>
-          <button type="submit" className="registerButton">
+          <div className="flex items-end justify-end mt-2">
+          <button type="submit" className="px-4 py-3 text-white bg-green-600 rounded-md shadow-md">
             REQUEST LOAN
           </button>
+          </div>
         </form>
-        <div className="single-card-loan-details">
-          <h2>Loan Details</h2>
-          <div style={{ display: "flex" }}>
+        <div className="p-8 bg-white rounded-md shadow-md mt-6 md:mt-0 w-full md:w-[47%]">
+          <h2 className="pb-6 text-xl font-semibold">Loan Details</h2>
+          <div className="flex items-center justify-between pb-4">
             <h4>Loan Amount</h4>
             <h4 className="span-loan">
               {"₦" + formState.inputs.loanAmount.value + ".00"}
             </h4>
           </div>
-          <div style={{ display: "flex" }}>
+          <div className="flex items-center justify-between pb-4">
             <h4>Duration</h4>
             <h4 className="span-loan">
               {formState.inputs.duration.value + "days"}
             </h4>
           </div>
-          <div style={{ display: "flex" }}>
+          <div className="flex items-center justify-between">
             <h4>Repayable Amount</h4>
             <h4 className="span-loan">
               {"₦" +

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 
-import "./Question.css";
-
 const Question = (props) => {
   const [flag, setFlag] = useState(false);
 

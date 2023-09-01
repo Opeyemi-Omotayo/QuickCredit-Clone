@@ -1,7 +1,6 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-import "./Loan.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const Loan = () => {
@@ -34,22 +33,24 @@ const Loan = () => {
 
   return (
     <React.Fragment>
-      <div className="container">
-        <div className="single-card-loan">
-         <h2>Active Loan</h2>
+      <div className="flex flex-col items-center justify-between mx-4 mt-6 lg:mx-0 lg:flex-row">
+        <div className="bg-white w-full mb-8 lg:mb-0 lg:w-[48%] h-[300px] rounded-lg shadow-md hover:translate-y-[2px]">
+         <h2 className="p-4 text-lg font-semibold">Active Loan</h2>
+         <div className="flex flex-col items-center justify-center h-[210px]">
          {data.length ? (<><p>Click below to see more information abour your loan!</p>
-          <button onClick={requestloanHandler}>See More</button></>) : (<><p>You have no active loan</p>
-          <button onClick={requestloanHandler}>Request Loan</button></>) }   
+          <button onClick={requestloanHandler} className="px-4 py-3 text-white bg-green-600 rounded shadow">See More</button></>) : (<><p>You have no active loan</p>
+          <button onClick={requestloanHandler} className="px-4 py-3 text-white bg-green-600 rounded shadow">Request Loan</button></>) }   
+         </div>
         </div>
-        <div className="single-card-loan">
-          <h2>My Wallet</h2>
-          <div className="loan-bg">
+        <div className="bg-white w-full lg:w-[48%] h-[300px] rounded-lg shadow-md hover:translate-y-[2px]">
+          <h2 className="p-4 text-lg font-semibold">My Wallet</h2>
+          <div className="flex flex-col items-start px-4 justify-center mx-8 h-[210px] rounded bg-blue-300">
             <div>
-              <h4>Total Balance</h4>
+              <h4 className="font-semibold text-blue-700">Total Balance</h4>
               <h3>₦0.00</h3>
             </div>
             <div>
-              <h4>Loan Balance</h4>
+              <h4 className="font-semibold text-blue-700">Loan Balance</h4>
               <h3>₦0.00</h3>
             </div>
           </div>

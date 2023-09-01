@@ -74,7 +74,6 @@ const Register = () => {
    window.recaptchaVerifier = new RecaptchaVerifier("recaptcha-container", {
   'size': 'invisible',
   'callback': (response) => {
-    // reCAPTCHA solved, allow signInWithPhoneNumber.
     onSignInSubmit();
   }
 }, auth);

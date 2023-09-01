@@ -6,14 +6,13 @@ import Register from "./pages/Register";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";
 import UserDashBoard from "./pages/UserDashBoard";
-import Loan from "./Elements/Loan";
-import PaymentCard from "./Elements/PaymentCard";
-import TransactionHistory from "./Elements/TransactionHistory";
-import SideDrawer from "./Elements/SideDrawer";
-import RequestLoan from "./Elements/RequestLoan";
 import AdminDashBoard from "./pages/AdminDashBoard";
 import { AuthContext } from "./context/auth-context";
 import { useAuth } from "./hooks/auth-hook";
+import LoanPage from "./pages/LoanPage";
+import PaymentPage from "./pages/PaymentPage";
+import TransactionHistoryPage from "./pages/TransactionHistoryPage";
+import RequestLoanPage from "./pages/RequestLoanPage";
 
 function App() {
   useEffect(() => {
@@ -45,19 +44,16 @@ function App() {
           <UserDashBoard />
         </Route>
         <Route path="/app/users/loan" exact>
-          <SideDrawer />
-          <Loan />
+          <LoanPage />
         </Route>
         <Route path="/app/users/loan/request-loan" exact>
-          <RequestLoan />
+          <RequestLoanPage />
         </Route>
         <Route path="/app/users/payment" exact>
-          <SideDrawer />
-          <PaymentCard />
+          <PaymentPage />
         </Route>
         <Route path="/app/users/history" exact>
-          <SideDrawer />
-          <TransactionHistory />
+         <TransactionHistoryPage />
         </Route>
         <Redirect to="/" />
       </Switch>

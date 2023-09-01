@@ -1,25 +1,4 @@
-.admin-intro{
-    padding-left: 15px;
-    padding-top: 15px;
-}
 
-.trans-table {
-    width: 38rem;
-    border-collapse: collapse;
-    
-}
-
-.headerr-row{
-    background-color: #2c2c2c;
-    color: white;
-    position: sticky;
-    width: 100%;
-}
-
-.log_right{
-margin: 3rem;
-float: right;
-}
 
 th,
 td {
