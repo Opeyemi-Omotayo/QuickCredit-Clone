@@ -1,5 +1,4 @@
 import React from "react";
-import IntroImg from "../Images/Into.svg";
 
 const Intro = () => {
 
@@ -17,11 +16,10 @@ const Intro = () => {
             <img
               src="https://quickcredit.com.ng/static/media/iphone-x.dad475a3.png"
               alt="iphone"
-              data-aos="fade-down"
               className="w-[250px] md:w-[300px] lg:w-[320px]"
+              data-aos="fade-down"
             />
         </div>
-         {/* <img src={IntroImg} alt="intro" /> */}
       </div>
     </React.Fragment>
   );
