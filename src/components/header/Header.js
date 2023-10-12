@@ -17,7 +17,7 @@ const Header = () => {
           
             <ul className="flex">
               <li className="mr-4">
-                <a href="/#aboutUS" smooth>
+                <a href="/#about">
                   ABOUT{" "}
                 </a>
               </li>

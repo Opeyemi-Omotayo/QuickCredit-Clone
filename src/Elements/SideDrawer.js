@@ -27,7 +27,7 @@ const SideDrawer = () => {
   return (
     <>
       <nav className="">
-        <div className="fixed items-start hidden px-8 bg-white group lg:flex ">
+        <div className="fixed items-start hidden px-8 bg-white shadow-lg group lg:flex ">
           <div className="flex flex-col items-start justify-between h-[100vh]">
             <div className="flex-col items-start justify-between">
               <div className="flex items-center py-8">

@@ -86,7 +86,7 @@ function App() {
       }}
     >
       <Router>
-        <main>{routes}</main>
+        <main className="scrollable-element">{routes}</main>
       </Router>
     </AuthContext.Provider>
   );

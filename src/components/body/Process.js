@@ -3,7 +3,7 @@ import React from "react";
 const Process = () => {
   return (
     <React.Fragment>
-      <div className="mt-[4rem] font-mono lg:mt-0">
+      <div id="process" className="mt-[4rem] font-mono lg:mt-0">
         <div className="flex flex-col items-center justify-center">
         <h2 className="text-sm font-semibold text-blue-900">HOW IT WORKS</h2>
         <h1 className="text-xl font-bold lg:text-2xl">Fast & Easy Application Process</h1>
