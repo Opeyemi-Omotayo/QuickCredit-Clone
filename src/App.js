@@ -1,7 +1,7 @@
 import React,{useEffect} from "react";
 import AOS from "aos";
+import "aos/dist/aos.css";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-
 import Register from "./pages/Register";
 import HomePage from "./pages/HomePage";
 import Login from "./pages/Login";

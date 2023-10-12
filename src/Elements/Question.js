@@ -15,7 +15,7 @@ const Question = (props) => {
           {props.text}
           {!flag ? <AiOutlinePlus className="text-green-600" />: <AiOutlineMinus className="text-green-600"/>}
         </p>
-        {flag && <p className="px-4 py-3 bg-green-300">{props.answer}</p>}
+        {flag && <p className="px-4 py-3 bg-green-300" data-aos="fade-in">{props.answer}</p>}
       </div>
     </React.Fragment>
   );

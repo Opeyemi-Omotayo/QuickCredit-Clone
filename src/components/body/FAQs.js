@@ -4,7 +4,7 @@ import Question from "../../Elements/Question";
 const FAQs = () => {
   return (
     <React.Fragment>
-      <section id="faqs" >
+      <section id="faqs" data-aos="fade-up" >
       <div className="flex flex-col items-center justify-center mb-[6rem] mt-[10rem]">
         <h2 className="text-sm font-semibold text-blue-900">FAQs</h2>
         <h1 className="text-xl font-bold lg:text-2xl">Frequently Asked Questions</h1>

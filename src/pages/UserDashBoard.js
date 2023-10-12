@@ -13,7 +13,7 @@ const UserDashBoard = () => {
         <div className="w-[100%] lg:w-[25%]">
           <SideDrawer />
         </div>
-        <div className="w-[100%] lg:w-[70%] my-8">
+        <div className="w-[100%] lg:w-[70%] my-8" data-aos="fade-up">
           <DashBoardDivs />
           <Loan />
           <PaymentCard />

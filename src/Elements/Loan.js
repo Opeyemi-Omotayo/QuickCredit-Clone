@@ -37,7 +37,7 @@ const Loan = () => {
         <div className="bg-white w-full mb-8 lg:mb-0 lg:w-[48%] h-[300px] rounded-lg shadow-md hover:translate-y-[2px]">
          <h2 className="p-4 text-lg font-semibold">Active Loan</h2>
          <div className="flex flex-col items-center justify-center h-[210px]">
-         {data.length ? (<><p>Click below to see more information abour your loan!</p>
+         {data.length ? (<><p className="px-6 text-center">Click below to see more information abour your loan!</p>
           <button onClick={requestloanHandler} className="px-4 py-3 text-white bg-green-600 rounded shadow">See More</button></>) : (<><p>You have no active loan</p>
           <button onClick={requestloanHandler} className="px-4 py-3 text-white bg-green-600 rounded shadow">Request Loan</button></>) }   
          </div>

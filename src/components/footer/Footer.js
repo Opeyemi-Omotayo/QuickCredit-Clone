@@ -12,7 +12,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <React.Fragment>
-      <div className="footer-img px-[1rem]">
+      <div className="footer-img px-[1rem]" data-aos="fade-up">
       <footer
         id="footer"
         className="font-mono text-black mt-[1rem] pb-[4rem] grid grid-cols-1 lg:flex lg:justify-between sm:grid-cols-2 gap-y-10 lg:gap-y-0 lg:px-10"
