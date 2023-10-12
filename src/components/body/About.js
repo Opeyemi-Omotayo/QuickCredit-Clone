@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <React.Fragment>
-      <div id="about" className="font-mono bg-secondary" data-aos="fade-up">
+      <div id="about" className="font-mono" data-aos="fade-up">
         <div className="mx-[1rem] my-[2rem] lg:mx-[3rem] lg:my-[4rem] pl-4 md:pr-0 pr-4 md:pl-6 bg-white rounded shadow flex flex-col md:flex-row items-center justify-between">
           <div className="mr-4 ">
             <h2 className="mt-4 mb-4 text-2xl font-bold md:text-3xl xl:text-4xl lg:mt-0">ABOUT US</h2>
